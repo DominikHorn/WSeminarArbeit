@@ -1,0 +1,153 @@
+
+<!-- saved from url=(0046)http://www.ai-junkie.com/ann/evolved/nnt1.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+<meta name="Author" content="Mat Buckland">
+<meta name="Keywords" content="artificial intelligence neural network tutorial introduction ai">
+<meta name="Description" content="neural network tutorial in plain english">
+<title>Neural Network Tutorial</title>
+<link rel="File-List" href="http://www.ai-junkie.com/ann/evolved/nnt1_files/filelist.xml">
+
+<style>
+<!--
+ p.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0cm; margin-right:0cm; margin-top:0cm}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]-->
+<title>neural networks in plain english</title>
+<style fprolloverstyle="">A:hover {color: red; font-weight: bold}
+</style>
+<!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+<style type="text/css"></style></head>
+
+<body text="#C0C0C0" bgcolor="#000066">
+
+<p class="MsoNormal" align="center">
+<a href="http://www.ai-junkie.com/">
+<img border="0" src="./Seite1_files/logo.jpg" width="469" height="78"></a></p>
+<hr>
+
+<p class="MsoNormal">
+&nbsp;</p>
+
+<p class="MsoNormal">
+&nbsp;</p>
+<p class="MsoNormal" align="center" style="text-align:center">
+<img border="0" src="./Seite1_files/image001.jpg" width="236" height="331"></p>
+<p class="MsoNormal" align="center" style="text-align:center">
+<span style="font-size:24.0pt;font-family:Arial;color:navy">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="text-align:center">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify"><font color="#FFFFCC"><u>
+<span style="font-size: 14pt; "><b>
+<span style="font-family: Arial">I</span></b></span><b><span style="font-size:14.0pt;font-family:Arial;">ntroduction</span></b></u></font></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify"><span style="font-family:Arial">
+I have been interested in artificial intelligence and artificial life for years 
+and I read most of the popular books printed on the subject. I developed a grasp 
+of most of the topics yet neural networks always seemed to elude me. Sure, I 
+could explain their architecture but as to how they actually worked and how they 
+were implemented… well that was a complete mystery to me, as much magic as 
+science. I bought several books on the subject but every single one attacked the 
+subject from a very mathematical and academic viewpoint and very few even gave any practical uses or examples. So for a long 
+long time I scratched my head and hoped that one day I would be able to 
+understand enough to experiment with them myself.</span></p>
+<p class="MsoNormal" style="text-align:justify"><span style="font-family:Arial">
+&nbsp;</span></p>
+<p class="MsoNormal" style="text-align:justify"><span style="font-family:Arial">
+That day arrived some time later when - sat in a tent in the highlands of 
+Scotland reading a book - I had a sudden blast of insight. It was one of those 
+fantastic “eureka” moments and although Scotland is a beautiful place I couldn’t wait to get to a computer so I could try out what I’d just 
+learnt. To my surprise the first neural net I programmed worked perfectly and I 
+haven’t looked back since. I still have a great deal to learn, neural nets are a 
+huge subject, but I hope I can share enough knowledge and enthusiasm to get you 
+started on your own little projects. In many ways the fields of AI and A-Life are 
+very exciting to work in. I think of these subjects as the explorers of old must 
+have looked at all those vast empty spaces on the maps. There is so much to learn and 
+discover. </span></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" align="center"><span style="font-family:Arial">
+&nbsp;</span><!--[if gte vml 1]><v:shapetype id="_x0000_t202"
+ coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1030" type="#_x0000_t202" alt="" style='width:522pt;
+ height:67.5pt' fillcolor="maroon" stroked="f" strokeweight=".35189mm">
+ <v:textbox>
+<table cellspacing="0" cellpadding="0" width="100%" height="100%">
+  <tr>
+    <td align="center">
+    <p align="left"><font color="#C0C0C0">
+    <span style="font-family: Arial; background: #800000">Before you start this 
+    subject please make sure you understand how to use genetic algorithms 
+    thoroughly. This is necessary because we will be using genetic algorithms to 
+    evolve the neural network weights in the code project at the end of the 
+    tutorial. You can find my short tutorial on genetic algorithms <b><u>
+    <a href="../../ga/intro/gat1.html">here.</a></u></b></span></font></td>
+  </tr>
+</table>
+ </v:textbox>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="700" height="94" src="./Seite1_files/image001.gif" v:shapes="_x0000_s1030"><!--[endif]--></p>
+<p class="MsoNormal" style="text-align:justify">
+&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify"><span style="font-family:Arial">
+I’ll start off by describing what a neural net actually is and what it’s 
+architecture is, then I’ll do a little theory on how we get it to perform for us 
+but I’ll try to use as little maths as possible. (Having some understanding of 
+mathematics is impossible to avoid however and the deeper you get into this 
+topic the more mathematics you are going to have to learn). Finally, we’ll get 
+to the fun bit. I’ll come up with a little project I will program and take you 
+through one step at a time. It will be in this last phase of the tutorial where 
+I hope you get the same “eureka” feeling for neural nets as I did back in rainy 
+old Scotland. Until then just sit back, absorb and be patient.</span></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify"><i><font face="Arial">
+The C++ source 
+code for the tutorial and a pre-compiled executable can be found<font color="#FF0000"> </font>
+<a target="_blank" href="http://www.ai-junkie.com/files/smart_sweepers.zip">here</a><font color="#0000FF">.</font></font></i></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify"><i><font face="Arial">
+<font color="#FF0000">Update: </font>A reader,
+<a href="mailto:samus@feudalkingdoms.tzo.org">Sam Corder</a>, has converted the 
+code into <b>VB NET</b>. You can download his source and executable
+<a href="http://www.ai-junkie.com/files/AntsVBdotNet.zip">here.</a></font></i></p>
+<p class="MsoNormal" style="text-align:justify"><i><font face="Arial">
+<font color="#FF0000">Update: </font>A reader,
+<a href="mailto:creitzel@twmi.rr.com">Chris Reitzel</a>, has converted the 
+code into <b>DELPHI</b>. You can download his source and executable
+<a href="http://www.ai-junkie.com/files/Smart_Sweepers_Delphi.zip">here.</a></font></i></p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<hr>
+<p class="MsoNormal" style="text-align: justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align: center"><b> <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt2.html">2</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt3.html">3</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt4.html">4</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt5.html">5</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt6.html">6</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt7.html">7</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt8.html">8</a></u>&nbsp; <font face="Arial">
+<a href="http://www.ai-junkie.com/ann/evolved/nnt2.html">Next</a>&nbsp; <a href="http://www.ai-junkie.com/index.html">Home</a></font></b></p>
+
+
+
+
+
+
+</body></html>

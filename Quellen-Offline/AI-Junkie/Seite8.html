@@ -1,0 +1,284 @@
+
+<!-- saved from url=(0092)file:///D:/Programming/Eclipse/WSeminar/WSeminarArbeit/Quellen-Offline/AI-Junkie/Seite9.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Author" content="Mat Buckland">
+<meta name="Keywords" content="artificial intelligence neural network tutorial introduction ai">
+<meta name="Description" content="neural network tutorial in plain english">
+<style>
+<!--
+ p.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0cm; margin-right:0cm; margin-top:0cm}
+-->
+</style>
+<style fprolloverstyle="">A:hover {color: red; font-weight: bold}
+</style>
+<title>neural network tutorial prt 8</title>
+<style type="text/css"></style></head>
+
+<body text="#C0C0C0" bgcolor="#000066">
+
+<p class="MsoNormal" align="center"><a href="http://www.ai-junkie.com/">
+<img border="0" src="./Seite8_files/logo.jpg" width="469" height="78"></a></p>
+<hr>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal"><b>
+<span style="font-size:14.0pt;font-family:Arial;color:#FFFFCC; text-decoration:underline">Putting it all 
+together</span></b></p>
+<p class="MsoNormal"><b>
+<span style="font-size:14.0pt;font-family:Arial;color:navy">&nbsp;</span></b></p>
+<p class="MsoNormal"><span style="font-family:Arial">I'm not going into a 
+detailed description of the  </span><font face="Courier" color="#FFFFFF">CMineSweeper</font><span style="font-family:Arial"> and  </span>
+<font face="Courier" color="#FFFFFF">CController</font><span style="font-family:Arial"> classes 
+because they should be 
+easily understood from the comments within the code. I <i>will</i> include them 
+in the tutorial however if enough people pester me. I will describe the main 
+loop though, just so you know exactly what's going on in there. I have omitted 
+some lines that are included in the actual source for clarity. The missing code 
+just deals with cosmetic stuff like updating the graph display and other stats.</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="90%" id="AutoNumber1" bgcolor="#000080">
+    <tbody><tr>
+      <td width="100%">
+<p class="MsoNormal"><font color="#FFFFFF" size="2" face="Courier New">bool CController::Update()</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">{</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //run the sweepers through 
+CParams::iNumTicks amount of cycles. During</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //this loop each sweeper's NN is 
+constantly updated with the appropriate</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //information from its 
+surroundings. The output from the NN is obtained</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //and the sweeper is moved. If it 
+encounters a mine its fitness is</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //updated appropriately,</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; if (m_iTicks++ 
+&lt; CParams::iNumTicks)</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; {</font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp; for 
+(int i=0; i&lt;m_NumSweepers; 
+++i)</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp; {</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //update the NN 
+and position</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if 
+(!m_vecSweepers[i].Update(m_vecMines))</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+//error in processing the neural net</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MessageBox(m_hwndMain, "Wrong 
+amount of NN inputs!", "Error", MB_OK);</font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+return false;</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></p>
+      <font color="#000000">
+<p>&nbsp;</p>
+<p></p>
+      </font>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //see if 
+it's found a mine</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int GrabHit = m_vecSweepers[i].CheckForMine(m_vecMines, 
+CParams::dMineScale);</font></p>
+<p>&nbsp;</p>
+<p><font color="#FFFFFF" face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if 
+(GrabHit &gt;= 0)</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+//we have discovered a mine so increase fitness</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+m_vecSweepers[i].IncrementFitness();</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //mine 
+found so replace the mine with another at a random </font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+//position</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+m_vecMines[GrabHit] =
+SVector2D(RandFloat() * cxClient</font><font color="#FFFFFF"><font size="2" face="Courier New">,</font><font face="Courier New">
+</font>
+</font><font color="#FFFFFF" size="2" face="Courier New">RandFloat() *
+cyClient);</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+//update the fitness score</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+m_vecThePopulation[i].dFitness 
+= m_vecSweepers[i].Fitness();</font></p>
+      <font color="#FFFFFF">
+<p><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; }</font></p>
+<p><font face="Courier New" size="2">&nbsp; }</font></p>
+      </font></td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">This first part of the if 
+statement runs all the minesweepers through one generation (one generation consists of </span>
+<font face="Courier" color="#FFFFFF">CParams::iNumTicks</font><span style="font-family:Arial"> 
+amount of computer cycles) updating their neural nets and their positions 
+accordingly. If a land-mine is found it is removed and that minesweeper's 
+fitness score is increased by 1. The land-mine is then replaced by another at a 
+randomly generated position.</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="90%" id="AutoNumber2" bgcolor="#000080">
+    <tbody><tr>
+      <td width="100%"><font face="Courier" size="2">&nbsp;
+</font><font face="Courier New" size="2" color="#FFFFFF">//Another generation 
+      has been completed.</font><font color="#000000"><p></p>
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //Time to run the GA and update 
+the sweepers with their new NNs</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp; else</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#FFFFFF">
+<p><font face="Courier New" size="2">&nbsp; {</font></p>
+</font>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //increment the generation 
+counter</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#FFFFFF">
+</font><p><font color="#FFFFFF"><font size="2" face="Courier New">&nbsp;&nbsp;&nbsp; ++</font></font><font face="Courier New" size="2" color="#FFFFFF">m_iGenerations;</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //reset cycles</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp; m_iTicks</font><font color="#FFFFFF"><font size="2" face="Courier New"> 
+= 0;</font></font></p><font color="#FFFFFF">
+</font>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //run the GA to create a new 
+population</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp; m_vecThePopulation 
+= m_pGA-&gt;Epoch(m_vecThePopulation);</font></p>
+<p>&nbsp;</p>
+      <font color="#000000">
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+      </font>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //insert the new (hopefully)improved 
+brains back into the sweepers</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //and reset their 
+positions etc</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp; for (int i=0; i&lt;m_NumSweepers; 
+++i)</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp; {</font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_vecSweepers[i].PutWeights(m_vecThePopulation[i].vecWeights);</font></p>
+      <font color="#000000">
+<p></p>
+</font><p><font color="#000000"></font></p>
+<p><font color="#FFFFFF" face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_vecSweepers[i].Reset();
+</font></p>
+      <font color="#FFFFFF">
+<p><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; }</font></p>
+<p><font face="Courier New" size="2">&nbsp; }</font></p>
+      </font>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp; return true;</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">}</font><font color="#FFFFFF"><span style="font-family:Courier New">&nbsp;</span></font></p>
+      </td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial">The else statement kicks in 
+at the end of every generation. It's this chunk of code which collates all 
+the minesweepers chromosomes and fitness scores and sends the information to the 
+genetic algorithm. The 
+GA does its stuff, passes the new weights back which then get put into a new 
+generation of minesweepers brains. Everything is reset and a new cycle is run as per the 
+previous paragraph.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">This </span>
+<font face="Courier" color="#FFFFFF">Update</font><span style="font-family:Arial"> function 
+loops endlessly until you decide the minesweepers have evolved interesting enough behaviour. 
+This usually takes around fifty generations.</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><i><font face="Arial" color="#FFFFFF">Hitting the 'F' key when the program is 
+running will put the program into accelerated time mode and you'll see a simple 
+graph of the population's progress.</font></i></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><u><b><font face="Arial" size="4" color="#FFFFCC">Stuff to Try</font></b></u></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><font face="Arial">Evolve minesweepers that avoid the 
+mines.</font></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><font face="Arial">Evolve minesweepers that pick up the 
+mines but avoid another type of object. (not as easy as you think)</font></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family: Arial">When you've played around 
+a little with the code the more observant of you will notice that the simple 
+crossover operator used here is not very effective. Can you think why? Can you 
+design a more effective crossover operator?</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><font face="Arial">It's possible to design the neural 
+networks in a way that uses far fewer inputs and hidden neurons. How small can 
+you make a network and yet still evolve effective behavior?</font></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial;color:black">&nbsp;</span></p>
+<p class="MsoNormal"><b>
+<span style="font-size:14.0pt;font-family:Arial;color:#FFFFCC; text-decoration:underline">And that’s all 
+folks!</span></b></p>
+<p class="MsoNormal"><b>
+<span style="font-size:14.0pt;font-family:Arial;color:navy">&nbsp;</span></b></p>
+<p class="MsoNormal"><span style="font-family:Arial">I thought I was never going 
+to get to the end of this but here we are at last! If any of you do anything 
+interesting with neural nets after you have read this tutorial I would love to 
+be informed. Please feel free to use my 
+code in your own projects but I’d appreciate it if you give me credit where due.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">And most of all, have fun!</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><font face="Arial">If you have enjoyed (or 
+not!) the tutorial please take a moment to comment or ask questions on the
+<a target="_top" href="http://www.ai-junkie.com/board/">message board</a>. Getting 
+feedback from you makes the effort seem all the more worthwhile.</font></p>
+<p class="MsoNormal">&nbsp;</p>
+<hr>
+
+<p class="MsoNormal">
+<span lang="EN-GB" style="font-size: 10.0pt; font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal">
+<span lang="EN-GB" style="font-size: 10.0pt; font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="text-align:center"><b> <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt1.html">1</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt2.html">2</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt3.html">3</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt4.html">4</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt5.html">5</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt6.html">6</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt7.html">7</a></u>&nbsp; <font face="Arial">
+<a href="http://www.ai-junkie.com/index.html">Home</a></font></b></p>
+
+<p class="MsoNormal">&nbsp;</p>
+
+
+
+</body></html>

@@ -1,0 +1,20 @@
+@font-face { font-family: 'Droid Sans'; font-style: normal; font-weight: 700;
+  src: url(/staticrl/fonts/droidsans/DroidSans-Bold.eot);
+  src: url(/staticrl/fonts/droidsans/DroidSans-Bold.eot?#iefix) format('embedded-opentype'), url(/staticrl/fonts/droidsans/DroidSans-Bold.woff) format('woff'), url(/staticrl/fonts/droidsans/DroidSans-Bold.ttf) format('truetype'), url(/staticrl/fonts/droidsans/DroidSans.svg#DroidSans-Bold) format('svg');
+}
+@font-face { font-family: 'Droid Sans'; font-style: normal; font-weight: 400;
+  src: url(/staticrl/fonts/droidsans/DroidSans.eot);
+  src: url(/staticrl/fonts/droidsans/DroidSans.eot?#iefix) format('embedded-opentype'), url(/staticrl/fonts/droidsans/DroidSans.woff) format('woff'), url(/staticrl/fonts/droidsans/DroidSans.ttf) format('truetype'), url(/staticrl/fonts/droidsans/DroidSans.svg#DroidSans) format('svg');
+}
+@font-face { font-family: 'Droid Serif'; font-style: normal; font-weight: 400;
+  src: url(/staticrl/fonts/droidserif/DroidSerif.eot);
+  src: url(/staticrl/fonts/droidserif/DroidSerif.eot?#iefix) format('embedded-opentype'), url(/staticrl/fonts/droidserif/DroidSerif.woff) format('woff'), url(/staticrl/fonts/droidserif/DroidSerif.ttf) format('truetype'), url(/staticrl/fonts/droidserif/DroidSerif.svg#DroidSerif) format('svg');
+}
+@font-face { font-family: 'Droid Serif'; font-style: italic; font-weight: 400;
+  src: url(/staticrl/fonts/droidserif/DroidSerif-Italic.eot);
+  src: url(/staticrl/fonts/droidserif/DroidSerif-Italic.eot?#iefix) format('embedded-opentype'), url(/staticrl/fonts/droidserif/DroidSerif-Italic.woff) format('woff'), url(/staticrl/fonts/droidserif/DroidSerif-Italic.ttf) format('truetype'), url(/staticrl/fonts/droidserif/DroidSerif.svg#DroidSerif-Italic) format('svg');
+}
+@font-face { font-family: 'Droid Serif'; font-style: normal; font-weight: 700;
+  src: url(/staticrl/fonts/droidserif/DroidSerif-Bold.eot);
+  src: url(/staticrl/fonts/droidserif/DroidSerif-Bold.eot?#iefix) format('embedded-opentype'), url(/staticrl/fonts/droidserif/DroidSerif-Bold.woff) format('woff'), url(/staticrl/fonts/droidserif/DroidSerif-Bold.ttf) format('truetype'), url(/staticrl/fonts/droidserif/DroidSerif.svg#DroidSerif-Bold) format('svg');
+}

@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-3.html -->
+<html lang="de-DE" class=" js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" type="text/javascript" charset="utf-8" src="./Seite3_files/async_lib.js"></script><style type="text/css">.plista_widget_oba{display:block;cursor:pointer;margin-left:4px;width:16px;height:14px;background-repeat:no-repeat}.plista_widget_oba:hover{width:110px}.plista_widget_oba_hint{width:110px!important}.plista_widget_oba_right{float:right;background-position:right top}.plista_widget_oba_right:hover{background-position:right -14px;}.plista_widget_oba_left{margin-left:0}.plista_widget_oba_left:hover{background-position:left -14px;}</style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<meta name="viewport" content="width=device-width"><link rel="first" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html">
+<link rel="prev" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-2.html">
+<link rel="next" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-4.html">
+<title>Wie funktioniert das Lernen mit neuronalen Netzwerken? - Deep Learning: Maschinen, die wie Menschen lernen - Golem.de</title>
+<meta name="title" content="Wie funktioniert das Lernen mit neuronalen Netzwerken? - Deep Learning: Maschinen, die wie Menschen lernen - Golem.de">
+<meta name="fulltitle" content="Wie funktioniert das Lernen mit neuronalen Netzwerken? - Deep Learning: Maschinen, die wie Menschen lernen - Golem.de">
+<meta name="DC.title" content="Wie funktioniert das Lernen mit neuronalen Netzwerken? - Deep Learning: Maschinen, die wie Menschen lernen - Golem.de">
+<meta name="description" content="Keine Science-Fiction: Deep Learning bringt Maschinen das Denken bei. Fast jeder hat bereits ein Gerät zu Hause, das diese Technik nutzt. Sie ist sehr komplex - und hat großes Potenzial. - Wie funktioniert das Lernen mit neuronalen Netzwerken?">
+<meta name="news_keywords" content="Maschinelles Lernen, Cortana, Instant Messenger, Neuronales Netzwerk, Siri, Internet">
+<link rel="image_src" href="http://www.golem.de/1510/116468-106966-i_rc.jpg">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" property="og:title" content="Wie funktioniert das Lernen mit neuronalen Netzwerken? - Deep Learning: Maschinen, die wie Menschen lernen - Golem.de">
+<meta name="twitter:url" property="og:url" content="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html">
+<meta name="twitter:image:src" property="og:image" content="http://www.golem.de/1510/116468-106965-i_rc.jpg">
+<meta name="twitter:description" property="og:description" content="Keine Science-Fiction: Deep Learning bringt Maschinen das Denken bei. Fast jeder hat bereits ein Gerät zu Hause, das diese Technik nutzt. Sie ist sehr komplex - und hat großes Potenzial. - Wie funktioniert das Lernen mit neuronalen Netzwerken?">
+
+<meta name="twitter:site" content="@golemredaktion">
+
+<meta name="application-name" content="Golem.de">
+<meta name="msapplication-config" content="/staticrl/xml/ieconfig.xml">
+<meta name="msapplication-TileImage" content="/staticrl/images/mstiles/white144.png">
+<meta name="msapplication-TileColor" content="#222222">
+<meta name="msapplication-task" content="name=Homepage;action-uri=http://www.golem.de;icon-uri=http://www.golem.de/favicon.ico">
+<meta name="msapplication-task" content="name=Ticker;action-uri=http://www.golem.de/ticker/;icon-uri=http://www.golem.de/favicon.ico">
+<meta name="msapplication-task" content="name=Facebook;action-uri=http://www.facebook.com/golem;icon-uri=http://www.golem.de/_img/facebook_16.ico">
+<meta name="msapplication-task" content="name=Twitter;action-uri=http://twitter.com/GolemRedaktion;icon-uri=http://www.golem.de/_img/twitter_16.ico">
+<meta name="msapplication-task" content="name=Google+;action-uri=https://plus.google.com/108635198256823282564/?prsrc=3;icon-uri=http://www.golem.de/_img/gplus2_16.ico">
+<link rel="alternate" type="application/rss+xml" title="Golem.de RSS Feed" href="http://rss.golem.de/rss.php?feed=RSS1.0">
+<link rel="alternate" type="application/atom+xml" title="Golem.de ATOM Feed" href="http://rss.golem.de/rss.php?feed=ATOM1.0">
+<link rel="shortcut icon" href="http://www.golem.de/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="http://www.golem.de/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="54x54" href="http://www.golem.de/apple-touch-icon-54x54.png">
+<link rel="apple-touch-icon" sizes="72x72" href="http://www.golem.de/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="http://www.golem.de/apple-touch-icon-114x114.png">
+
+<link href="./Seite3_files/font-face-1.0.3.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="./Seite3_files/golem_main_71-min.css" type="text/css">
+
+<style type="text/css">
+#hn1-home { color:#fff !important }
+#hn2-top { color:#888 !important }
+</style>
+
+<script async="" src="./Seite3_files/golem_cpxl_70-min.js"></script><script type="text/javascript" async="" src="./Seite3_files/ga.js"></script><script async="" src="http://www.golem.de/staticrl/scripts/adsense/golem_csi-71-min.js"></script><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script async="" src="./Seite3_files/golem.de_v1.js"></script><script type="text/javascript">
+<!--
+if(!Golem) {
+    var Golem = {};
+}
+if(!Golem.Ad) {
+    Golem.Ad = {};
+}
+Golem.pcvclass = 'desktop';
+
+var gafc_rubrik = '8700646456', gafc_zone = '3410169894';
+document.getElementsByTagName('html')[0].className+=' js';
+if ((navigator.userAgent.search(/Windows NT 5\.[012]/i) > 0)) {
+    document.getElementsByTagName('html')[0].className+=' xp';
+}
+var _gcpx = _gcpx || [],
+    ord = Math.floor(Math.random()*1e16);
+//-->
+</script><style type="text/css"></style>
+
+<!--[if lt IE 9]>
+  <script src="/staticrl/scripts/external/modernizr.custom-2.6.2.min.js"></script>
+<![endif]-->
+
+
+<link rel="stylesheet" href="./Seite3_files/gg2_1-0-0-min.css" type="text/css">
+
+<script type="text/javascript" src="./Seite3_files/golem_article_70-min.js"></script>
+
+<script type="text/javascript">
+<!--
+Golem.CurrentArticle.idArticle = '116468';
+//-->
+</script>
+
+<script type="text/javascript">
+Golem.isTopOnHomepage = false;
+if(117247 == Golem.CurrentArticle.idArticle) {
+    Golem.isTopOnHomepage = true;
+}
+</script><style type="text/css">
+.article .list-pages { padding-bottom: 20px !important; }
+</style>
+
+<script type="text/javascript" src="./Seite3_files/tx.io"></script></head>
+<body class="article">
+    <div class="golemContentToHide">
+<script type="text/javascript">
+<!--
+  var IVW = "", n_pbt = "", gzipEnabled = false;
+  var _gafccsi = _gafccsi || [];
+//-->
+</script>
+<!-- begin ad tag (init) -->
+<script type="text/javascript" src="./Seite3_files/iqd_gzip_test.js.gz"></script>
+<script type="text/javascript">
+    // ---Laden AdController---
+    var iqd_mode = (function(){
+        var dm = window.location.href.toLowerCase();
+        return (dm.indexOf('iqdeployment=')>1) ? (dm.split('iqdeployment=')[1]).replace(/[^a-z]+/g, '') : 'live';
+    })();
+    document.write('<scr' + 'ipt src="https://s3-eu-central-1.amazonaws.com/prod.iqdcontroller.iqdigital/cdn_golem/'+iqd_mode+'/iqadcontroller.js' + (gzipEnabled ? '.gz' : '') + '"></scr' + 'ipt>');
+</script><script src="https://s3-eu-central-1.amazonaws.com/prod.iqdcontroller.iqdigital/cdn_golem/live/iqadcontroller.js.gz"></script>
+<script type="text/javascript">
+if (typeof AdController !== 'undefined') {
+    AdController.setPageInfo({
+        $handle:"artikel",
+        $autoSizeFrames:true,
+        level2:"artikel",
+        level3:"",
+        keywords:"inet,,maschinelleslernen,tsilkcalb,cortana,instantmessenger,neuronalesnetzwerk,siri,internet",
+        tma:""
+    });
+    AdController.initialize();
+}
+</script>
+<!-- end ad tag (init) -->
+<div id="bannerTopWrapper">
+<div class="iqdSiteAlign">
+<div id="superbanner">
+<!-- begin ad tag (oop) -->
+<div id="iqadtileOOP">
+<script type="text/javascript">
+if (typeof AdController !== 'undefined' && AdController._siteConfig._adapterName === 'gpt') { AdController.render('iqadtileOOP'); }
+</script>
+</div>    
+<!-- end ad tag (oop) -->
+<!-- begin ad tag (tile=1) -->
+<div id="iqadtile1">
+<script type="text/javascript">
+if (typeof AdController !== 'undefined') { AdController.render('iqadtile1'); }
+</script>
+</div>
+<!-- end ad tag (tile=1) -->
+
+<div id="skyscraper">
+<!-- begin ad tag (tile=2) -->
+<div id="iqadtile2">
+<script type="text/javascript">
+if (typeof AdController !== 'undefined') { AdController.render('iqadtile2'); }
+</script>
+</div>
+<!-- end ad tag (tile=2) -->
+</div><!-- skyscraper --> 
+</div><!-- superbanner -->
+
+</div>
+</div><div id="grandwrapper">
+<header id="header">
+    <div class="dh1">
+        <a href="http://www.golem.de/"><img alt="Golem.de - IT-News für Profis" src="./Seite3_files/logo-g.png"></a>
+    </div>
+    <nav id="header-nav-1">
+        <div class="implied">Navigation</div>
+        <ul>
+            <li><a id="hn1-home" href="http://www.golem.de/">Home</a></li>
+            <li><a id="hn1-ticker" href="http://www.golem.de/ticker/">Ticker</a></li>
+            <li><a id="hn1-video" href="http://video.golem.de/">Video</a></li>
+        </ul>
+    </nav><!-- #header-nav-1 -->
+    <nav id="header-nav-2">
+        <div id="hn2-top" class="dh2">Top-Themen:</div>
+<ul>
+<li><a id="hn2s-smartphone" href="http://www.golem.de/specials/smartphone/">Smartphone</a></li><li><a id="hn2s-security" href="http://www.golem.de/specials/security/">Security</a></li><li><a id="hn2s-auto" href="http://www.golem.de/specials/auto/">Auto</a></li><li><a id="hn2s-windows10" href="http://www.golem.de/specials/windows10/">Windows 10</a></li><li><a id="hn2s-anleitung" href="http://www.golem.de/specials/anleitung/">Anleitung</a></li><li><a id="hn2s-android-6.0" href="http://www.golem.de/specials/android-6.0/">Android 6.0</a></li><li class="contains-drop"><a href="http://www.golem.de/specials/">mehr…</a><ul><li><a href="http://www.golem.de/specials/el-capitan/">OS X 10.11</a></li><li><a href="http://www.golem.de/specials/apple/">Apple</a></li><li><a href="http://www.golem.de/specials/open-source/">Open Source</a></li><li><a href="http://www.golem.de/specials/test/">Test</a></li><li><a href="http://www.golem.de/specials/wearable/">Wearable</a></li><li><a href="http://www.golem.de/specials/nsa/">NSA</a></li><li><a href="http://www.golem.de/specials/netzpolitik/">Netzpolitik</a></li><li><a href="http://www.golem.de/specials/applewatch/">Apple Watch</a></li><li><a href="http://www.golem.de/specials/amd/">AMD</a></li><li><a href="http://www.golem.de/specials/microsoft/">Microsoft</a></li><li><a href="http://www.golem.de/specials/gta-5/">GTA 5</a></li><li><a href="http://www.golem.de/specials/linux/">Linux</a></li><li><a href="http://www.golem.de/specials/bnd-affaere/">BND-Affäre</a></li><li><a href="http://www.golem.de/specials/amazon-fire-tv/">Amazon Fire TV</a></li><li><a href="http://www.golem.de/specials/virtuelle-realitaet/">VR</a></li><li><a href="http://www.golem.de/specials/facebook/">Facebook</a></li><li><a href="http://www.golem.de/specials/foto/">Foto</a></li><li><a href="http://www.golem.de/specials/android/">Android</a></li><li><a href="http://www.golem.de/specials/smartwatch/">Smartwatch</a></li><li><a href="http://www.golem.de/specials/whistleblower/">Whistleblower</a></li><li><a href="http://www.golem.de/specials/google/">Google</a></li><li><a href="http://www.golem.de/specials/galaxy_s6/">Galaxy S6</a></li><li><a href="http://www.golem.de/specials/sony/">Sony</a></li><li><a href="http://www.golem.de/specials/amazon/">Amazon</a></li><li><a href="http://www.golem.de/specials/oculus-rift/">Oculus Rift</a></li></ul></li>
+</ul>    </nav><!-- #header-nav-2 -->
+
+<form method="get" action="http://suche.golem.de/search.php" name="su">
+    <input type="hidden" name="l" value="10">
+    <fieldset>
+        <label class="implied" for="search-text">Suchbegriffe:</label>
+        <span class="inputText">
+            <input id="search-text" placeholder="" type="text" name="q" value="" tabindex="1">
+        </span>
+        <span class="inputSubmit">
+            <input id="search-submit" type="submit" value="Suchen" tabindex="2">
+        </span>
+    </fieldset>
+</form>
+</header><!-- #header -->
+<div id="gservices">
+    <span id="gservabo">
+        <a href="https://account.golem.de/login" rel="nofollow">Abo</a>
+    </span>
+    <ul id="gservnav">
+        <li>Services:</li>
+        <li><a href="http://preisvergleich.golem.de/" rel="nofollow">Preisvergleich</a></li>
+        <li><a href="http://jobs.golem.de/" rel="nofollow">Stellenmarkt</a></li>
+        <li><a href="http://www.golem.de/phitshp.php" rel="nofollow">Top-Angebote</a></li>
+    </ul>
+</div>
+
+        <div id="screen">
+            <div class="g g2" style="float:right !important">
+<figure id="gasideimg" style="margin-bottom:20px;"><img src="./Seite3_files/sp_116468-106965-i_rc.jpg" title="Deep Learning: Maschinen, die wie Menschen lernen" alt="Deep Learning basiert auf der Funktionsweise menschlicher Nervenzellen." style="margin:0 auto; border:0; width:300px; height:169px;"><figcaption class="text1" style="text-align:center;">Deep Learning basiert auf der Funktionsweise menschlicher Nervenzellen. (Bild: <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="nofollow" target="_blank">Jan Homann/CC BY-SA 3.0</a>)</figcaption></figure>            </div>
+            <div class="g g4 g-ie6">
+                <article>
+<header class="paged-cluster-header">
+<h1 class="head4">Wie funktioniert das Lernen mit neuronalen Netzwerken?</h1></header>
+
+
+<!-- BANNER -->
+
+<!-- begin ad tag (tile=4) -->
+<div style="margin:15px 0; min-height:266px;">
+<div id="iqadtile4" style="text-align:center;">
+<div class="text1 iqadmarker" id="label4iqadtile4">Anzeige</div>
+<script type="text/javascript">
+if (typeof AdController !== 'undefined') { AdController.render('iqadtile4'); }
+</script>
+</div>
+</div>
+<!-- end ad tag (tile=4) -->
+
+
+<div class="formatted">
+<!--content-->
+<p><!-- /* PAGETITLE //Wie funktioniert das Lernen mit neuronalen Netzwerken?// */ -->
+
+
+Sowohl die Merkmalstransformationen als auch die Klassenentscheidung werden bei neuronalen Netzen durch die Beobachtung der Daten gelernt. Für unser Beispiel erfolgt der Lernvorgang für die Aufgabe der Klassenzuordnung von Bildern. Zuerst wird ein Bild am Eingang des neuronalen Netzes angelegt und der Ausgangswert berechnet. Aus der Differenz zwischen dem Ausgang und der gewünschten Klasse lässt sich ein Fehler(wert) berechnen.</p><!-- op -->
+<p>Dieser Fehler hängt von sogenannten Gewichten der Neuronen (siehe Abbildung 1) ab, denn sie bestimmen den Ausgangswert.</p>
+<div class="golem-gallery2" id="golem-gallery2-0">
+    <ul class="golem-gallery2-list">
+                                                <li class="golem-gallery2-show"><div class="golem-gallery2-inneritem">
+                <img src="./Seite3_files/Deeplearning 1a.jpg.png" alt="Abbildung 1 (Bild: Christian Herta)" title="Abbildung 1 (Bild: Christian Herta)" data-src="http://scr3.golem.de/screenshots/1510/Deeplearning/thumb620/Deeplearning 1a.jpg.png" data-src-full="http://scr3.golem.de/screenshots/1510/Deeplearning/Deeplearning 1a.jpg.png">
+                        </div></li>
+                                    <li><div class="golem-gallery2-inneritem">
+                <img src="./Seite3_files/Deeplearning 1b.jpg.png" alt="Abbildung 2 (Bild: Christian Herta)" title="Abbildung 2 (Bild: Christian Herta)" data-src="http://scr3.golem.de/screenshots/1510/Deeplearning/thumb620/Deeplearning 1b.jpg.png" data-src-full="http://scr3.golem.de/screenshots/1510/Deeplearning/Deeplearning 1b.jpg.png">
+                        </div></li>
+            </ul>
+    <ul class="golem-gallery2-nav">
+        <li class="golem-gallery2-nav-prev"><img src="./Seite3_files/links.png"></li>
+        <li class="golem-gallery2-nav-count"><span class="golem-gallery2-nav-count-current">1</span><span>&nbsp;/&nbsp;</span><span class="golem-gallery2-nav-count-all">2</span></li>
+        <li class="golem-gallery2-nav-next"><img src="./Seite3_files/rechts.png"></li>
+    </ul>
+    <ul class="golem-gallery2-footer">
+        <li class="golem-gallery2-footer-hide"><img src="./Seite3_files/minus.png"></li>
+        <li class="golem-gallery2-footer-title">Abbildung 1 (Bild: Christian Herta)</li>
+        <li class="golem-gallery2-footer-fullscreen"><img src="./Seite3_files/icon-ggfs_w2.png"></li>
+    </ul>
+</div>
+<p>
+
+<em>Abbildung 1: Ein Neuron als kleinste Recheneinheit eines neuronalen Netzes: Es wird die Summe der gewichteten Eingabewerte x1, x2, ... xn berechnet, d. h., jeder Eingabewert xi wird zuerst mit einem Gewicht wi multipliziert, bevor alle Eingabewerte aufsummiert werden.</em></p>
+<p id="gfpop1"><em>Abbildung 2: Anschließend wird eine Aktivierungsfunktion (Schwellenwertfunktion) σ auf die gewichtete Summe angewendet. Falls die gewichtete Summe größer als der Schwellwert (hier im Beispiel 0,75) ist, liegt am Ausgang des Neurons eine 1 (aktiv) an. Falls die gewichtete Summe kleiner ist, ist das Neuron dagegen inaktiv. Der Ausgang hat dann den Wert 0. Dies ist ein Beispiel für eine harte Aktivierungsfunktion (blau). In Grün ist eine weichere Aktivierungsfunktion dargestellt. </em></p>
+<p id="gfpop2">Ein Gewicht ist sozusagen die Wertschätzung oder Wahrscheinlichkeit, die das neuronale Netzwerk der Beobachtung eines Neuronen zuordnet. Beim Lernen werden nun die Gewichte so angepasst, dass der Fehler kleiner wird, indem der Ausgangswert sich dem gewünschten Zielwert für alle Trainingsbeispiele annähert (siehe Abbildung 9).</p>
+<div class="golem-gallery2" id="golem-gallery2-1">
+    <ul class="golem-gallery2-list">
+                                                <li class="golem-gallery2-show"><div class="golem-gallery2-inneritem">
+                <img src="./Seite3_files/deeplearning 6.jpg.png" alt="Abbildung 9 (Bild: Christian Herta)" title="Abbildung 9 (Bild: Christian Herta)" data-src="http://scr3.golem.de/screenshots/1510/Deeplearning9/thumb620/deeplearning 6.jpg.png" data-src-full="http://scr3.golem.de/screenshots/1510/Deeplearning9/deeplearning 6.jpg.png">
+                        </div></li>
+            </ul>
+    <ul class="golem-gallery2-nav golem-gallery2-nav-inactive">
+        <li class="golem-gallery2-nav-prev"><img src="./Seite3_files/links.png"></li>
+        <li class="golem-gallery2-nav-count"><span class="golem-gallery2-nav-count-current">1</span><span>&nbsp;/&nbsp;</span><span class="golem-gallery2-nav-count-all">1</span></li>
+        <li class="golem-gallery2-nav-next"><img src="./Seite3_files/rechts.png"></li>
+    </ul>
+    <ul class="golem-gallery2-footer">
+        <li class="golem-gallery2-footer-hide"><img src="./Seite3_files/minus.png"></li>
+        <li class="golem-gallery2-footer-title">Abbildung 9 (Bild: Christian Herta)</li>
+        <li class="golem-gallery2-footer-fullscreen"><img src="./Seite3_files/icon-ggfs_w2.png"></li>
+    </ul>
+</div>
+<p>
+
+<em>Abbildung 9: Vereinfachte Darstellung einer Merkmalstransformation für zwei Merkmale und drei Klassen. Im ursprünglichen Merkmalsraum haben wir eine komplizierte Abbildungsfunktion der Merkmale auf die Klassen. Nach der Transformation sind die Datenpunkte der unterschiedlichen Klassen im Raum durch einfache gerade Trennlinien (im allgemeinen Hyperebenen) voneinander abgegrenzt.</em></p>
+<p id="gfpop">Das Lernen wurde so als ein mathematisch lösbares Optimierungsproblem formuliert.</p>
+<p>Für unser Beispiel der drei Klassen codiert man die Zielklasse mit drei Ausgangsneuronen o1, o2 und o3. Jedes Ausgangsneuron entspricht dann einer Klasse. o1 steht beispielsweise für die Landschaftsaufnahme, o2 für Porträts und o3 für die Tieraufnahmen. Wird ein Porträtfoto am Eingang angelegt, ist der Wunschzielwert der Ausgangsneuronen: o1=0; o2=1; o3=0; in Vektorform (0,1,0). Die Ausgangsneuronen des neuronalen Netzes haben typischerweise eine Aktivierungsfunktion, die Wahrscheinlichkeiten für die Klassen angeben.</p>
+<p>Ist der Ausgang z. B. (0.3, 0.45, 0.25), so bedeutet dies, dass das neuronale Netz folgende Wahrscheinlichkeiten berechnet: 30 Prozent für die Klasse Landschaftsaufnahme, 45 Prozent für die Klasse Porträt und 25 Prozent für die Klasse Tieraufnahme.</p>
+<p>Der Fehler ergibt sich dann aus der Differenz zwischen der Einschätzung des neuronalen Netzes für die Zielklasse zur gewünschten Zielwahrscheinlichkeit 100 Prozent. Da die Einschätzung des neuronalen Netzes für die Zielklasse Porträt 45 Prozent beträgt, ist die Differenz 100 Prozent - 45 Prozent = 55 Prozent.</p>
+<p>Beim Lernen werden nun die Neuronengewichte so modifiziert, dass der Fehlerwert von 55 Prozent erniedrigt wird. Das heißt, dass die Wahrscheinlichkeit für die Zielklasse Porträtfoto erhöht werden soll. Beim Anlegen dieses Fotos soll sie größer als die bisherigen 45 Prozent sein. Ein wichtiger Algorithmus für diese Anpassung der Gewichte ist <a href="http://deeplearning.stanford.edu/wiki/index.php/Backpropagation_Algorithm" target="_blank" class="golem-external-url">Backpropagation</a>.</p>
+<p>Dabei wird effizient berechnet, wie stark die einzelnen Neuronengewichte geändert werden müssen, um den Fehler zu reduzieren.
+
+</p>
+<!--/content-->
+</div>
+
+<ol id="list-jtoc" class="list-pages" style="display: block;">
+<li><a id="jtoc_prev" class="icon-lsaquo" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-2.html">&nbsp;</a></li>
+<li><a id="jtoc_1" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html">1</a></li>
+<li><a id="jtoc_2" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-2.html">2</a></li>
+<li><strong>3</strong></li>
+<li><a id="jtoc_4" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-4.html">4</a></li>
+<li><a id="jtoc_5" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-5.html">5</a></li>
+<li><a id="jtoc_6" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-6.html">6</a></li>
+<li><a id="jtoc_7" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-7.html">7</a></li>
+<li><a id="jtoc_8" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-8.html">8</a></li>
+<li><a id="jtoc_next" class="icon-rsaquo" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-4.html">&nbsp;</a></li>
+</ol><!-- .list-pages -->
+<table id="table-jtoc" class="g4"><tbody><tr>
+<td class="list-pages"><a id="jtocb_prev" class="icon-lsaquo" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-2.html">&nbsp;</a></td><td class="text1"><a id="atoc_prev" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-2.html">Wissen repräsentieren und generalisieren</a></td><td class="text1" style="text-align:right"><a id="atoc_next" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-4.html">Warum ist das Lernen neuronaler Netze so schwierig?</a></td><td class="list-pages"><a id="jtocb_next" class="icon-rsaquo" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-4.html">&nbsp;</a></td></tr></tbody></table>
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+  $("a[id^='jtoc_'],a[id^='jtocb_']").attr('href',function(){j=document.getElementById(this.id.replace(/jtocb?_/g,'atoc_')); return j!=null?j.href:'#';});
+  $("ol#list-jtoc").css('display','block');});
+//-->
+</script>
+                </article>
+                <hr class="implied">
+<!-- begin ad tag -->
+<div style="position:relative">
+<iframe width="620" height="30" frameborder="0" marginheight="0" marginwidth="0" scrollbars="no" style="margin-bottom:20px;" src="./Seite3_files/minibanner_flat_620.html"></iframe>
+
+<iframe width="120" height="23" frameborder="0" marginheight="0" marginwidth="0" scrollbars="no" src="./Seite3_files/trial-social-s7.html" style="width:120px; height:23px; border:none; position: absolute; right:0px; top: 52px;"></iframe>
+</div>
+<!-- end ad tag -->
+<div style="height:30px;margin-bottom:1em;">
+
+<div class="social-bar social-bottom">
+    <ul>
+                <li class="social-flattr bar-margin" title="Flattr">
+            <a title="Artikel flattrn" class="social-button" href="https://flattr.com/submit/auto?user_id=golemredaktion&url=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html&title=Deep+Learning%3A+Maschinen%2C+die+wie+Menschen+lernen" target="_blank" onclick="_onSocialClick(&#39;desktop&#39;, &#39;bottom&#39;, &#39;flattr&#39;, &#39;&#39;);" rel="nofollow">
+                <div class="social-img"></div>
+                <div class="social-counter"><!-- flattr -->4</div>
+            </a>
+        </li>
+                <li class="social-facebook bar-margin" title="Facebook">
+            <a class="social-button" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html" target="_blank" onclick="_onSocialClick(&#39;desktop&#39;, &#39;bottom&#39;, &#39;fb&#39;, &#39;&#39;);" rel="nofollow">
+                <div class="social-img"></div>
+                <div class="social-counter">161</div>
+            </a>
+        </li>
+        <li class="social-twitter bar-margin" title="Twitter">
+            <a class="social-button" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html&source=tweetbuttont&url=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html&text=Deep+Learning%3A+Maschinen%2C+die+wie+Menschen+lernen" target="_blank" onclick="_onSocialClick(&#39;desktop&#39;, &#39;bottom&#39;, &#39;twitter&#39;, &#39;&#39;);" rel="nofollow">
+                <div class="social-img"></div>
+                <div class="social-counter">135</div>
+            </a>
+        </li>
+        <li class="social-gplus" title="Google+">
+            <a class="social-button" href="https://plusone.google.com/_/+1/confirm?hl=de&url=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html" target="_blank" onclick="_onSocialClick(&#39;desktop&#39;, &#39;bottom&#39;, &#39;gplus&#39;, &#39;&#39;);" rel="nofollow">
+                <div class="social-img"></div>
+                <div class="social-counter">40</div>
+            </a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+
+
+if(!_onSocialClick) {
+    var _onSocialClick = function(type, mode, sn, aid) {
+        var t = 'd', m = 'button';
+
+        switch(type) {
+            case 'mobile': t = 'm'; break;
+            case 'tablet': t = 't'; break;
+        }
+        switch(mode) {
+            case 'bottom': m = m + 'low' + '/' + sn + '/' + aid; break;
+            case 'sidebar': m = m + '/' + sn + '/' + aid; break;
+        }
+
+        _gcpx.push(['ev', t, m]);
+
+        return true;
+    };
+}
+
+</script>
+</div><div id="csi_art1" style="padding: 0px; display: block;"><ins class="adsbygoogle" data-ad-client="ca-pub-2342548244565729" style="display:block;width:620px; height:164px" data-ad-slot="7370415692" data-max-num-ads="2"></ins></div>
+<script type="text/javascript">
+<!--
+if (typeof _gafccsi !== 'undefined') {
+  _gafccsi.push('csi_art1');
+}
+//-->
+</script>
+<!-- FORUM -->
+<section id="comments">
+    <div class="dh1"><a href="http://forum.golem.de/kommentare/internet/deep-learning-maschinen-die-wie-menschen-lernen/95669,list.html">Kommentarübersicht</a></div>
+    <div class="dlifc"><div class="dh2"><a href="http://forum.golem.de/kommentare/internet/deep-learning-maschinen-die-wie-menschen-lernen/sehr-gute-erlaeuterung-aber-nicht-zu-detailiert/95669,4308805,4308805,read.html#msg-4308805" id="ltlart4308805" style="display: inline;">Sehr gute Erläuterung - aber nicht zu detailiert</a></div><div class="dh3"><strong>kahmann</strong>&nbsp;29. Okt 2015</div><p style="overflow:hidden;">Der Artikel hat mir gut gefallen. Nicht zuletzt auch, weil er sehr tief in die Materie...</p></div>
+<div class="dli"><div class="dh2"><a href="http://forum.golem.de/kommentare/internet/deep-learning-maschinen-die-wie-menschen-lernen/mobil-fehlen-abbildungen/95669,4286182,4293493,read.html#msg-4293493" id="ltlart4293493" style="display: inline;">Re: Mobil fehlen Abbildungen</a></div><div class="dh3"><strong>jg (Golem.de)</strong>&nbsp;15. Okt 2015</div><p style="overflow:hidden;">Jetzt müssten endlich auch mobil alle Bilder zu sehen sein!</p></div>
+<div class="dli"><div class="dh2"><a href="http://forum.golem.de/kommentare/internet/deep-learning-maschinen-die-wie-menschen-lernen/bravo-mal-ein-tiefgruendiger-artikel/95669,4285287,4287652,read.html#msg-4287652" id="ltlart4287652" style="display: inline;">Re: Bravo, mal ein tiefgründiger Artikel!</a></div><div class="dh3"><strong>natsan2k</strong>&nbsp;08. Okt 2015</div><p style="overflow:hidden;">Schöner und interessanter Artikel.</p></div>
+<div class="dli"><div class="dh2"><a href="http://forum.golem.de/kommentare/internet/deep-learning-maschinen-die-wie-menschen-lernen/fast-jeder-hat-ein-geraet/95669,4285856,4287620,read.html#msg-4287620" id="ltlart4287620" style="display: inline;">Re: fast jeder hat ein Gerät?</a></div><div class="dh3"><strong>attitudinized</strong>&nbsp;08. Okt 2015</div><p style="overflow:hidden;">Tatsächlich hat Siri was mit lernen zutun - oder genauer mit Training.
+Die verwendete...</p></div>
+<div class="dli"><div class="dh2"><a href="http://forum.golem.de/kommentare/internet/deep-learning-maschinen-die-wie-menschen-lernen/golem-mittlerweile-besser-als-heise/95669,4286450,4286459,read.html#msg-4286459" id="ltlart4286459" style="display: inline;">Re: Golem mittlerweile besser als Heise</a></div><div class="dh3"><strong>jg (Golem.de)</strong>&nbsp;07. Okt 2015</div><p style="overflow:hidden;">Vielen Dank für das Lob, wir freuen uns!</p></div>
+    <p class="meta">
+        <a href="http://forum.golem.de/posting.php?95669" class="rlink" rel="nofollow">Kommentieren</a>
+    </p>
+</section><!-- #comments -->
+<hr class="implied">
+<!-- / FORUM --><!-- begin ad tag -->
+<div data-widget="plista_widget_belowVideo_v2" style="margin: 20px 0; clear: both;"></div><div id="plista_widget_belowArticlev2" style="margin: 20px 0; clear: both;"></div>
+<script type="text/javascript"><!--
+gplinit=function(){
+  PLISTA.items.push({objectid: "116468", title: "Deep Learning: Maschinen, die wie Menschen lernen",
+    text: "Keine Science-Fiction: Deep Learning bringt Maschinen das Denken bei. Fast jeder hat bereits ein Gerät zu Hause, das diese Technik nutzt. Sie ist sehr komplex - und hat großes Potenzial.",
+    url: "http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html", img: "http://www.golem.de/1510/116468-106966-i_rc.jpg",
+    page: 3, firstpage: false, created_at: 1444125662});
+  PLISTA.partner.init();
+};
+(function(d,n){
+  var g=d.createElement(n),s=d.getElementsByTagName(n)[0];
+  g.async=true; g.src='http://static.plista.com/golem.de_v1.js';
+  g.onloadDone=false;
+  if(g.readyState){
+    g.onreadystatechange=function(){
+      if(this.readyState=="loaded" || this.readyState=="complete"){this.onreadystatechange=null; gplinit();}
+    };
+  }else{
+    g.onload=gplinit;
+  }
+  s.parentNode.insertBefore(g,s);
+})(document,'script');
+//--></script>
+<!-- end ad tag --><!-- no trackbacks -->
+            </div><!-- .g.g4.g-ie6 -->
+
+            <div class="g g2">
+<aside>
+    <h6 class="implied">Artikel</h6>
+    <ol>
+<li class="text1"><strong>Artikel:</strong> <a id="atoc_1" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html"><h2 class="head1">Deep Learning</h2> Maschinen, die wie Menschen lernen</a></li>
+<li class="text1"><strong>Inhalt:</strong> <ol id="gsidetoc" start="2">
+<li class="text1"><a id="atoc_2" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-2.html">Wissen repräsentieren und generalisieren</a></li>
+<li class="text1">Wie funktioniert das Lernen mit neuronalen Netzwerken?</li>
+<li class="text1"><a id="atoc_4" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-4.html">Warum ist das Lernen neuronaler Netze so schwierig?</a></li>
+<li class="text1"><a id="atoc_5" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-5.html">Tiefes Lernen über mehrere Schichten</a></li>
+<li class="text1"><a id="atoc_6" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-6.html">Deep Learning ersetzt das Feature-Engineering</a></li>
+<li class="text1"><a id="atoc_7" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-7.html">Woran derzeit geforscht wird</a></li>
+<li class="text1"><a id="atoc_8" href="http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468-8.html">Ist Deep Learning DAS neue Ding?</a></li>
+</ol></li>
+        <li class="text1"><strong>Datum:</strong>
+<time pubdate="pubdate" datetime="2015-10-06">6.10.2015, 12:01</time>        </li>
+        <li class="text1"><strong>Autoren:</strong>
+Alexander Löser, Christian Herta        </li>
+                <li class="text1">
+<div xmlns:v="http://rdf.data-vocabulary.org/#">
+  <span typeof="v:Breadcrumb">
+    <a href="http://www.golem.de/" rel="v:url" property="v:title" class="implied">Startseite</a>
+    <span rel="v:child">
+      <span typeof="v:Breadcrumb">
+        <strong><a href="http://www.golem.de/specials/" rel="v:url" property="v:title" style="color:#222;">Themen</a>:</strong>
+            <span rel="v:child">
+  <span typeof="v:Breadcrumb">
+    <a href="http://www.golem.de/specials/maschinelles-lernen/" rel="v:url" property="v:title" title="Maschinelles Lernen" class="lm">Maschinelles Lernen</a>,   </span>
+</span>
+<span rel="v:child">
+  <span typeof="v:Breadcrumb">
+    <a href="http://www.golem.de/specials/cortana/" rel="v:url" property="v:title" title="Cortana" class="lm">Cortana</a>,   </span>
+</span>
+<span rel="v:child">
+  <span typeof="v:Breadcrumb">
+    <a href="http://www.golem.de/specials/instantmessenger/" rel="v:url" property="v:title" title="Instant Messenger" class="lm">Instant Messenger</a>,   </span>
+</span>
+<span rel="v:child">
+  <span typeof="v:Breadcrumb">
+    <a href="http://www.golem.de/specials/neuronalesnetzwerk/" rel="v:url" property="v:title" title="Neuronales Netzwerk" class="lm">Neuronales Netzwerk</a>,   </span>
+</span>
+<span rel="v:child">
+  <span typeof="v:Breadcrumb">
+    <a href="http://www.golem.de/specials/siri/" rel="v:url" property="v:title" title="Siri" class="lm">Siri</a>,   </span>
+</span>
+<span rel="v:child">
+  <span typeof="v:Breadcrumb">
+    <a href="http://www.golem.de/specials/internet/" rel="v:url" property="v:title" title="Internet" class="lm">Internet</a>  </span>
+</span>
+      </span>
+    </span>
+  </span>
+</div>
+
+            
+        </li>
+        <li class="text1"><strong>Teilen:</strong>
+            
+<div style="height:85px;">
+
+<div class="social-bar social-sidebar">
+    <ul>
+                <li class="social-flattr bar-margin" title="Flattr">
+            <a title="Artikel flattrn" class="social-button" href="https://flattr.com/submit/auto?user_id=golemredaktion&url=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html&title=Deep+Learning%3A+Maschinen%2C+die+wie+Menschen+lernen" target="_blank" onclick="_onSocialClick(&#39;desktop&#39;, &#39;sidebar&#39;, &#39;flattr&#39;, &#39;&#39;);" rel="nofollow">
+                <div class="social-img"></div>
+                <div class="social-counter"><!-- flattr -->4</div>
+            </a>
+        </li>
+                <li class="social-facebook bar-margin" title="Facebook">
+            <a class="social-button" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html" target="_blank" onclick="_onSocialClick(&#39;desktop&#39;, &#39;sidebar&#39;, &#39;fb&#39;, &#39;&#39;);" rel="nofollow">
+                <div class="social-img"></div>
+                <div class="social-counter">161</div>
+            </a>
+        </li>
+        <li class="social-twitter bar-margin" title="Twitter">
+            <a class="social-button" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html&source=tweetbuttont&url=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html&text=Deep+Learning%3A+Maschinen%2C+die+wie+Menschen+lernen" target="_blank" onclick="_onSocialClick(&#39;desktop&#39;, &#39;sidebar&#39;, &#39;twitter&#39;, &#39;&#39;);" rel="nofollow">
+                <div class="social-img"></div>
+                <div class="social-counter">135</div>
+            </a>
+        </li>
+        <li class="social-gplus" title="Google+">
+            <a class="social-button" href="https://plusone.google.com/_/+1/confirm?hl=de&url=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html" target="_blank" onclick="_onSocialClick(&#39;desktop&#39;, &#39;sidebar&#39;, &#39;gplus&#39;, &#39;&#39;);" rel="nofollow">
+                <div class="social-img"></div>
+                <div class="social-counter">40</div>
+            </a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+
+
+if(!_onSocialClick) {
+    var _onSocialClick = function(type, mode, sn, aid) {
+        var t = 'd', m = 'button';
+
+        switch(type) {
+            case 'mobile': t = 'm'; break;
+            case 'tablet': t = 't'; break;
+        }
+        switch(mode) {
+            case 'bottom': m = m + 'low' + '/' + sn + '/' + aid; break;
+            case 'sidebar': m = m + '/' + sn + '/' + aid; break;
+        }
+
+        _gcpx.push(['ev', t, m]);
+
+        return true;
+    };
+}
+
+</script>
+</div>		</li>
+        <li class="text1"><strong>Tools:</strong>
+            <a href="http://www.golem.de/print.php?a=116468" rel="nofollow">Drucken</a>
+        </li>
+    </ol>
+</aside>
+<hr class="implied">
+<!-- begin ad tag (tile=8) -->
+<div id="iqadtile8">
+<div class="text1 iqadmarker" id="label4iqadtile8">Anzeige</div>
+<script type="text/javascript">
+if (typeof AdController !== 'undefined') { AdController.render('iqadtile8'); }
+</script>
+</div>
+<!-- end ad tag (tile=8) -->
+<section id="t8follower" class="supplementary" style="display:none"></section>
+<hr class="implied">
+
+<section class="supplementary" id="job-market">
+    <div class="dh1 head3"><a href="http://jobs.golem.de/">Stellenmarkt</a></div>
+    <ol>
+        <li class="text1"><a href="http://jobs.golem.de/Job/Mitarbeiter-fuer-die-Betriebsorganisation-m-w.26243211.html?jw_chl_seg=TOPJOBS" rel="nofollow" target="_blank">Mitarbeiter für die Betriebsorganisation (m/w) </a><br>
+            Südwolle Gmbh &amp; Co. KG, Schwaig
+        </li>
+        <li class="text1"><a href="http://jobs.golem.de/Job/IT-Developer-m-w.26254621.html?jw_chl_seg=TOPJOBS" rel="nofollow" target="_blank">IT Developer (m/w) </a><br>
+            TARGOBANK AG &amp; Co. KGaA, Duisburg
+        </li>
+        <li class="text1"><a href="http://jobs.golem.de/Job/Projektmanager-Datenmanagement-m-w.26245331.html?jw_chl_seg=TOPJOBS" rel="nofollow" target="_blank">Projektmanager Datenmanagement (m/w) </a><br>
+            über HRM CONSULTING GmbH, Wiesbaden
+        </li>
+        <li class="text1"><a href="http://jobs.golem.de/Job/Informatiker-w-m.26251581.html?jw_chl_seg=TOPJOBS" rel="nofollow" target="_blank">Informatiker (m/w) </a><br>
+            DLR Deutsches Zentrum für Luft- und Raumfahrt e.V., Köln
+        </li>
+    </ol>
+    <p class="meta text1"><a href="http://jobs.golem.de/" rel="nofollow" target="_blank">Detailsuche</a></p>
+</section><!-- .supplementary -->
+<hr class="implied">
+<section class="supplementary" id="pricehits">
+<div class="dh1 head3">Blu-ray-Angebote</div>
+<ol>
+<li class="text1"><span>VORBESTELLBAR: </span><a href="http://hits.golem.de/29698.html" rel="nofollow" target="_blank">Stromberg - Die komplette Bürografie [Blu-ray]</a><br><span>112,99€ (Vorbesteller-Preisgarantie)</span></li>
+<li class="text1"><span>NEU: </span><a href="http://hits.golem.de/29744.html" rel="nofollow" target="_blank">Action &amp; Sci-Fi Filme zum Sonderpreis</a><br><span>(u. a. Alien Jubiläums Collection, Planet der Affen Revolution, Terminator 1, Avatar)</span></li>
+<li class="text1"><span>GÜNSTIGER: </span><a href="http://hits.golem.de/29308.html" rel="nofollow" target="_blank">Der Hobbit 3 - Die Schlacht der fünf Heere - Extended/Sammler Edition (3D) [Limited Edition]</a><br><span>69,99€ (Vorbesteller-Preisgarantie)</span></li>
+</ol>
+<p class="meta text1"><a href="http://www.golem.de/phitshp.php" rel="nofollow" target="_blank">Weitere Angebote</a></p>
+</section><!-- .supplementary -->
+<hr class="implied">
+<section class="supplementary" id="followrss">
+    <div class="dh1 head3">Folgen Sie uns</div>
+<table>
+<tbody><tr>
+    <td><a href="http://www.facebook.com/golem" target="_blank" title="Auf Facebook folgen">&nbsp;</a></td>
+    <td><a href="http://twitter.com/GolemRedaktion" target="_blank" title="Auf Twitter folgen">&nbsp;</a></td>
+    <td><a href="https://plus.google.com/108635198256823282564/?prsrc=3" target="_blank" title="Auf Google+ folgen">&nbsp;</a></td>
+    <td style="padding:0"><a href="http://www.golem.de/sonstiges/rss.html" title="RSS Feed abonnieren">&nbsp;</a></td>
+</tr>
+</tbody></table>
+    </section><!-- .supplementary #followrss -->
+<hr class="implied">
+<section class="supplementary" id="related">
+    <div class="dh1 head3">Verwandte Artikel</div>
+    <ol>
+<li><a href="http://www.golem.de/news/nvidia-digits-devbox-forschungsrechner-mit-linux-kostet-15-000-us-dollar-1503-113043.html"><div class="dh2 head1">Nvidia Digits Devbox</div><p class="text1">Forschungsrechner mit Linux kostet 15.000 US-Dollar</p></a></li>
+<li><a href="http://www.golem.de/news/nupic-auf-dem-weg-zu-maschineller-intelligenz-1306-99616.html"><div class="dh2 head1">Nupic</div><p class="text1">Auf dem Weg zu maschineller Intelligenz</p></a></li>
+<li><a href="http://www.golem.de/news/uncanny-valley-babyroboter-diego-san-verzieht-das-gesicht-1301-96838.html"><div class="dh2 head1">Uncanny Valley</div><p class="text1">Babyroboter Diego-san verzieht das Gesicht</p></a></li>
+<li><a href="http://www.golem.de/news/echtzeitsuche-mensch-ersetzt-maschine-1301-96824.html"><div class="dh2 head1">Echtzeitsuche</div><p class="text1">Mensch ersetzt Maschine</p></a></li>
+<li><a href="http://www.golem.de/news/twitter-algorithmus-sagt-trendthemen-voraus-1211-95478.html"><div class="dh2 head1">Twitter</div><p class="text1">Algorithmus sagt Trendthemen voraus</p></a></li>
+    </ol>
+</section><!-- .supplementary#related -->
+<hr class="implied">
+<section id="video-clip" class="supplementary"><div class="dh1 head3"><a href="http://video.golem.de/">Videos</a></div><div class="v3d">
+
+
+
+
+<a href="http://video.golem.de/wissenschaft/16194/skylon-operations-reaction-engines.html" title="Skylon Operations - Reaction Engines">
+<img src="./Seite3_files/medium-480-skylon-snap.jpg" alt="Skylon Operations - Reaction Engines" style="width:300px; height:166px;">
+<img src="./Seite3_files/icon-video-1.png" alt="" class="v3icon">
+<span class="text1">Skylon Operations - Reaction Engines</span>
+</a>
+</div></section><div id="recently">
+    <section class="active" id="recent-articles">
+        <div class="dh1">Meistgelesen</div>
+        <ol>
+		    <li>
+                                <a id="mral_117247" href="http://www.golem.de/news/nexus-5x-und-nexus-6p-im-test-googles-neue-smartphones-sind-ihren-preis-nicht-wert-1511-117247.html">
+                                <div class="dh2 head1">Nexus 5X und Nexus 6P im Test</div>
+                <p class="text1">Googles neue Smartphones sind ihren Preis nicht wert</p>
+                </a>
+            </li>
+		    <li>
+                                <a id="mral_117269" href="http://www.golem.de/news/need-for-speed-im-test-soap-opera-mit-rennautos-1511-117269.html">
+                                <div class="dh2 head1">Need for Speed im Test</div>
+                <p class="text1">Soap Opera mit Rennautos</p>
+                </a>
+            </li>
+		    <li>
+                                <a id="mral_117273" href="http://www.golem.de/news/routerzwang-bundestag-will-gesetzentwurf-unveraendert-beschliessen-1511-117273.html">
+                                <div class="dh2 head1">Routerzwang</div>
+                <p class="text1">Bundestag will Gesetzentwurf unverändert beschließen</p>
+                </a>
+            </li>
+		    <li>
+                                <a id="mral_117263" href="http://www.golem.de/news/verschluesselung-riskanter-login-bei-e-mail-made-in-germany-1511-117263.html">
+                                <div class="dh2 head1">Verschlüsselung</div>
+                <p class="text1">Riskantes Login bei E-Mail made in Germany</p>
+                </a>
+            </li>
+		    <li>
+                                <a id="mral_117275" href="http://www.golem.de/news/4-5-g-huawei-startet-1-gbit-s-in-europa-im-mobilfunk-1511-117275.html">
+                                <div class="dh2 head1">4,5 G</div>
+                <p class="text1">Huawei startet 1 GBit/s in Europa im Mobilfunk</p>
+                </a>
+            </li>
+        </ol>
+        <!--<p class="more text1"><a href="">Mehr</a></p>-->
+    </section><!-- #recent-articles -->
+    <hr class="implied">
+            <section id="recent-comments">
+    <div class="dh1">Meistkommentiert</div>
+    <ol id="htlforum">
+<li><div class="dh2 head1"><a href="http://www.golem.de/news/anno-2205-im-test-mit-guter-laune-auf-zum-mond-1511-117250.html" target="_blank">Anno 2205 im Test: Mit guter Laune auf zum Mond</a></div><p class="text1">Kommentare:&nbsp;205 | <a href="http://forum.golem.de/kommentare/games/anno-2205-im-test-mit-guter-laune-auf-zum-mond/fuer-den-mac-bitte/96310,4312998,4314430,read.html#msg-4314430" rel="nofollow" id="htlmsg4314430" title="Re: Für den Mac bitte" style="display: inline;">letzter Beitrag</a>&nbsp;08:17 Uhr</p></li>
+<li><div class="dh2 head1"><a href="http://www.golem.de/news/microsoft-onedrive-speicherplatz-wird-fuer-kunden-deutlich-reduziert-1511-117264.html" target="_blank">Microsoft: Onedrive-Speicherplatz wird für Kunden deutlich reduziert</a></div><p class="text1">Kommentare:&nbsp;155 | <a href="http://forum.golem.de/kommentare/wirtschaft/microsoft-onedrive-speicherplatz-wird-fuer-kunden-deutlich-reduziert/wie-kommt-man-auf-75tb/96326,4313938,4314427,read.html#msg-4314427" rel="nofollow" id="htlmsg4314427" title="Re: Wie kommt man auf 75TB?" style="display: inline;">letzter Beitrag</a>&nbsp;08:13 Uhr</p></li>
+<li><div class="dh2 head1"><a href="http://www.golem.de/news/warner-bros-geld-zurueck-fuer-batman-arkham-knight-1511-117230.html" target="_blank">Warner Bros.: Geld zurück für Batman Arkham Knight</a></div><p class="text1">Kommentare:&nbsp;154 | <a href="http://forum.golem.de/kommentare/games/warner-bros.-geld-zurueck-fuer-batman-arkham-knight/der-crysis-effekt/96287,4311610,4312760,read.html#msg-4312760" rel="nofollow" id="htlmsg4312760" title="Re: Der Crysis Effekt:" style="display: inline;">letzter Beitrag</a>&nbsp;02.11. 17:31</p></li>
+<li><div class="dh2 head1"><a href="http://www.golem.de/news/league-of-legends-wenn-du-nicht-der-beste-bist-bist-du-ein-garnichts-1511-117238.html" target="_blank">League of Legends: "Wenn du nicht der Beste bist, bist du ein Garnichts"</a></div><p class="text1">Kommentare:&nbsp;127 | <a href="http://forum.golem.de/kommentare/games/league-of-legends-wenn-du-nicht-der-beste-bist-bist-du-ein-garnichts/dota-lol/96296,4312144,4314330,read.html#msg-4314330" rel="nofollow" id="htlmsg4314330" title="Re: DOTA &gt; LoL" style="display: inline;">letzter Beitrag</a>&nbsp;03.11. 23:35</p></li>
+<li><div class="dh2 head1"><a href="http://www.golem.de/news/verschluesselung-riskanter-login-bei-e-mail-made-in-germany-1511-117263.html" target="_blank">Verschlüsselung: Riskantes Login bei E-Mail made in Germany</a></div><p class="text1">Kommentare:&nbsp;118 | <a href="http://forum.golem.de/kommentare/security/verschluesselung-riskantes-login-bei-e-mail-made-in-germany/mailbox.org-...-ist-die-loesung/96324,4314033,4314429,read.html#msg-4314429" rel="nofollow" id="htlmsg4314429" title="Re: mailbox.org ... ist die Lösung" style="display: inline;">letzter Beitrag</a>&nbsp;08:16 Uhr</p></li>
+    </ol>
+    <p class="more text1"><a href="http://forum.golem.de/new/">Mehr</a></p>
+</section><!-- #recent-comments -->
+<hr class="implied">
+            
+    
+</div><!-- #recently --><section class="supplementary" id="small-ticker10">
+    <div class="dh1 head3"><a href="http://www.golem.de/ticker/">Ticker</a></div>
+    <ol>
+<li><a href="http://www.golem.de/news/4-5-g-huawei-startet-1-gbit-s-in-europa-im-mobilfunk-1511-117275.html" title="4,5 G: Huawei startet 1 GBit/s in Europa im Mobilfunk"><div class="dh2 head1">4,5 G</div> <p class="text1">Huawei startet 1 GBit/s in Europa im Mobilfunk</p></a></li>
+<li><a href="http://www.golem.de/news/linux-distribution-fedora-23-testet-gebuendelte-desktop-apps-1511-117274.html" title="Linux-Distribution: Fedora 23 testet gebündelte Desktop-Apps"><div class="dh2 head1">Linux-Distribution</div> <p class="text1">Fedora 23 testet gebündelte Desktop-Apps</p></a></li>
+<li><a href="http://www.golem.de/news/routerzwang-bundestag-will-gesetzentwurf-unveraendert-beschliessen-1511-117273.html" title="Routerzwang: Bundestag will Gesetzentwurf unverändert beschließen"><div class="dh2 head1">Routerzwang</div> <p class="text1">Bundestag will Gesetzentwurf unverändert beschließen</p></a></li>
+<li><a href="http://www.golem.de/news/mbb-2015-google-will-nicht-mehr-gegner-der-telekom-konzerne-sein-1511-117272.html" title="MBB 2015: Google will nicht mehr Gegner der Telekom-Konzerne sein"><div class="dh2 head1">MBB 2015</div> <p class="text1">Google will nicht mehr Gegner der Telekom-Konzerne sein</p></a></li>
+<li><a href="http://www.golem.de/news/beta-phase-vivaldi-browser-unterstuetzt-erweiterungen-und-h-264-1511-117271.html" title="Beta-Phase: Vivaldi-Browser unterstützt Erweiterungen und H.264"><div class="dh2 head1">Beta-Phase</div> <p class="text1">Vivaldi-Browser unterstützt Erweiterungen und H.264</p></a></li>
+<li><a href="http://www.golem.de/news/mozilla-firefox-42-erscheint-mit-schutzschild-gegen-tracking-1511-117265.html" title="Mozilla: Firefox 42 erscheint mit &quot;Schutzschild&quot; gegen Tracking"><div class="dh2 head1">Mozilla</div> <p class="text1">Firefox 42 erscheint mit "Schutzschild" gegen Tracking</p></a></li>
+<li><a href="http://www.golem.de/news/carbon-tablet-und-yoga-lenovo-plant-neue-x1-modelle-1511-117268.html" title="Carbon, Tablet und Yoga: Lenovo plant neue X1-Modelle"><div class="dh2 head1">Carbon, Tablet und Yoga</div> <p class="text1">Lenovo plant neue X1-Modelle</p></a></li>
+<li><a href="http://www.golem.de/news/activision-call-of-duty-kauft-candy-crush-1511-117270.html" title="Activision: Call of Duty kauft Candy Crush"><div class="dh2 head1">Activision</div> <p class="text1">Call of Duty kauft Candy Crush</p></a></li>
+<li><a href="http://www.golem.de/news/need-for-speed-im-test-soap-opera-mit-rennautos-1511-117269.html" title="Need for Speed im Test: Soap Opera mit Rennautos"><div class="dh2 head1">Need for Speed im Test</div> <p class="text1">Soap Opera mit Rennautos</p></a></li>
+<li><a href="http://www.golem.de/news/rufus-cuff-wem-eine-smartwatch-nicht-reicht-1511-117266.html" title="Rufus Cuff: Wem eine Smartwatch nicht reicht"><div class="dh2 head1">Rufus Cuff</div> <p class="text1">Wem eine Smartwatch nicht reicht</p></a></li>
+    </ol>
+</section><!-- .supplementary#small-ticker10 -->
+<hr class="implied">
+<section class="supplementary" id="newsletter">
+    <div class="dh1 head3"><a href="http://nl.golem.de/">Newsletter-Abo</a></div>
+    <form action="http://nl.golem.de/newsletter.php" name="nl" method="post">
+        <input type="hidden" name="source" value="1">
+        <input type="hidden" name="default" value="2">
+        <input type="hidden" name="action" value="create">
+        <fieldset>
+            <label class="implied" for="supplementary-newsletter-email">E-Mail-Adresse:</label>
+            <span class="inputText">
+                <input id="supplementary-newsletter-email" placeholder="ihre@email.com" type="email" name="email" value="">
+            </span>
+            <span class="inputSubmit">
+                <input id="supplementary-newsletter-submit" type="submit" value="Anmelden">
+            </span>
+        </fieldset>
+    </form>
+</section><!-- .supplementary#newsletter -->
+<hr class="implied">
+<section class="supplementary" id="contact">
+    <div class="dh1 head3">Haben wir etwas übersehen?</div>
+    <p class="text1">E-Mail an <a href="mailto:news@golem.de" rel="nofollow">news@golem.de</a></p>
+</section><!-- .supplementary#contact -->
+<hr class="implied">
+<!-- begin ad tag -->
+<div style="margin:0 0 1em">
+    <iframe width="300" height="340" src="./Seite3_files/desktop-medrec-art.html" style="width:300px; height:340px; border:none; overflow: hidden;"></iframe>
+</div>
+<section id="t8follower" class="supplementary" style="display:none"></section>
+<hr class="implied">
+<!-- end ad tag -->
+            </div><!-- .g.g2 -->
+
+            <div class="g g6 g-ie6 promos">
+
+
+
+<section class="g g-ie6 g2 promo" style="clear:both; margin-left:0;">
+    <div class="dh1 head3"><a href="http://www.golem.de/specials/canon/">Canon</a></div>
+<a id="proalt_117128" href="http://www.golem.de/news/canon-5ds-im-test-50-megapixel-sind-nicht-alles-1511-117128.html"><img id="proali_117128" alt="Canon 5DS im Test: 50 Megapixel sind nicht alles" src="./Seite3_files/sp_117128-108455-i_rc.jpg" class="golem-data-afterload" data-src="http://www.golem.de/1511/sp_117128-108455-i_rc.jpg"></a><header class="cluster-header"><a id="proal_117128" href="http://www.golem.de/news/canon-5ds-im-test-50-megapixel-sind-nicht-alles-1511-117128.html"><div class="dh3 head1">Canon 5DS im Test</div> <div class="dh2 head2">50 Megapixel sind nicht alles</div></a></header>
+    <p id="proalp_117128" style="display: block;">Die <a href="http://www.golem.de/specials/dslr/" target="_blank">Spiegelreflexkamera</a> Canon 5DS hält den Megapixelrekord in ihrer Klasse. Mehr als 50 Megapixel bietet keine andere <a href="http://www.golem.de/specials/dslr/" target="_blank">DSLR</a> mit Vollformatsensor. Wir haben die Kamera mehrere Wochen lang getestet. Rechtfertigt ihre Leistung den Preis? Für wen eignet sie sich?</p>
+    <script type="text/javascript">
+    <!--
+        document.getElementById("proalp_117128").style.display="block";
+    //-->
+    </script>
+    <ol>
+        <li class="text1"><a id="proalr_117128_117240" href="http://www.golem.de/news/amazon-keine-unterschiedlichen-preise-je-nach-endgeraet-1511-117240.html"><strong>Amazon</strong> Keine unterschiedlichen Preise je nach Endgerät</a></li>
+        <li class="text1"><a id="proalr_117128_116287" href="http://www.golem.de/news/virtual-reality-canon-zeigt-vr-maske-mit-5k-und-ohne-chromatische-aberration-1509-116287.html"><strong>Virtual Reality</strong> Canon zeigt VR-Maske mit 5K und ohne chromatische Aberration</a></li>
+        <li class="text1"><a id="proalr_117128_116158" href="http://www.golem.de/news/digitalkamera-canon-stellt-sensor-mit-250-megapixeln-vor-1509-116158.html"><strong>Digitalkamera</strong> Canon stellt Sensor mit 250 Megapixeln vor</a></li>
+    </ol>
+</section><!-- .g.g2.promo -->
+<hr class="implied">
+
+
+
+<section class="g g-ie6 g2 promo" style="">
+    <div class="dh1 head3"><a href="http://www.golem.de/specials/xbox-one/">Xbox One</a></div>
+<a id="proalt_117218" href="http://www.golem.de/news/elite-controller-nicht-unbesiegbar-aber-besser-1510-117218.html"><img id="proali_117218" alt="Elite Controller im Test: Nicht unbesiegbar, aber besser" src="./Seite3_files/sp_117218-108624-i_rc.jpg" class="golem-data-afterload" data-src="http://www.golem.de/1510/sp_117218-108624-i_rc.jpg"></a><header class="cluster-header"><a id="proal_117218" href="http://www.golem.de/news/elite-controller-nicht-unbesiegbar-aber-besser-1510-117218.html"><div class="dh3 head1">Elite Controller im Test</div> <div class="dh2 head2">Nicht unbesiegbar, aber besser</div></a></header>
+    <p id="proalp_117218" style="display: block;">Für PC-Spieler und Besitzer einer Xbox One bietet Microsoft seinen rund 150 Euro teuren Elite Controller an. Golem.de hat ihn ausprobiert - und sich fast vom ersten Moment an besser in <a href="http://www.golem.de/specials/halo/" target="_blank">Halo 5</a> geschlagen.</p>
+    <script type="text/javascript">
+    <!--
+        document.getElementById("proalp_117218").style.display="block";
+    //-->
+    </script>
+    <ol>
+        <li class="text1"><a id="proalr_117218_117130" href="http://www.golem.de/news/xbox-one-termin-fuer-neues-dashboard-und-abwaertskompatibilitaet-1510-117130.html"><strong>Xbox One</strong> Termin für neues Dashboard und Abwärtskompatibilität</a></li>
+        <li class="text1"><a id="proalr_117218_117106" href="http://www.golem.de/news/spielebranche-xbox-one-ohne-verkaufszahlen-und-ps4-mit-uhd-spekulationen-1510-117106.html"><strong>Spielebranche</strong> Xbox One ohne Verkaufszahlen und PS4 mit UHD-Spekulationen</a></li>
+        <li class="text1"><a id="proalr_117218_116681" href="http://www.golem.de/news/xbox-one-controller-buttons-werden-frei-belegbar-1510-116681.html"><strong>Xbox One Controller</strong> Buttons werden frei belegbar</a></li>
+    </ol>
+</section><!-- .g.g2.promo -->
+<hr class="implied">
+
+
+
+    
+
+        
+<section class="g g-ie6 g2 promo" style="">
+    <div class="dh1 head3"><a href="http://www.golem.de/specials/drohne/">Drohne</a></div>
+<a id="proalt_117194" href="http://www.golem.de/news/sicherheit-drohnen-brauchen-ein-einheitliches-betriebssystem-1511-117194.html"><img id="proali_117194" alt="Sicherheit: Drohnen brauchen ein einheitliches Betriebssystem" src="./Seite3_files/sp_117194-108559-i_rc.jpg" class="golem-data-afterload" data-src="http://www.golem.de/1511/sp_117194-108559-i_rc.jpg"></a><header class="cluster-header"><a id="proal_117194" href="http://www.golem.de/news/sicherheit-drohnen-brauchen-ein-einheitliches-betriebssystem-1511-117194.html"><div class="dh3 head1">Sicherheit</div> <div class="dh2 head2">Drohnen brauchen ein einheitliches Betriebssystem</div></a></header>
+    <p id="proalp_117194" style="display: block;">Zur Aufklärung, zum Transport und als Hobbyobjekt: Drohnen sind dabei, den Alltag zu verändern. Doch so vielfältig die Anwendung, so unterschiedlich sind auch die Betriebssysteme. Dabei würde eine vernetzte und offene Plattform für alle Geräte einiges erleichtern.</p>
+    <script type="text/javascript">
+    <!--
+        document.getElementById("proalp_117194").style.display="block";
+    //-->
+    </script>
+    <ol>
+        <li class="text1"><a id="proalr_117194_117205" href="http://www.golem.de/news/eu-parlament-drohnen-sollen-gechipt-werden-1510-117205.html"><strong>EU-Parlament</strong> Drohnen sollen gechipt werden</a></li>
+        <li class="text1"><a id="proalr_117194_116999" href="http://www.golem.de/news/flugsicherung-us-regierung-kuendigt-registrierungspflicht-fuer-drohnen-an-1510-116999.html"><strong>Flugsicherung</strong> US-Regierung kündigt Registrierungspflicht für Drohnen an</a></li>
+        <li class="text1"><a id="proalr_117194_116951" href="http://www.golem.de/news/flugangst-usa-planen-wohl-registrierungspflicht-fuer-private-drohnen-1510-116951.html"><strong>Flugangst</strong> USA planen wohl Registrierungspflicht für private Drohnen</a></li>
+    </ol>
+</section><!-- .g.g2.promo -->
+    
+        
+<hr class="implied">
+            </div><!-- .g.g6.g-ie6.promos -->
+
+            <div class="g g6 g-ie6 activity">
+<!-- FORUM -->
+<section class="g g4" id="large-forum">
+    <div class="dh1"><a href="http://forum.golem.de/new/">Forumsbeiträge »</a></div>
+    <ol id="ltlforum">
+<li><div class="dh2 text1"><a href="http://forum.golem.de/kommentare/handy/nexus-5x-und-nexus-6p-im-test-googles-neue-smartphones-sind-ihren-preis-nicht-wert/96327,list.html"><strong>Nexus 5X und Nexus 6P im Test</strong> Googles neue Smartphones sind ihren Preis nicht wert</a></div><p><a href="http://forum.golem.de/kommentare/handy/nexus-5x-und-nexus-6p-im-test-googles-neue-smartphones-sind-ihren-preis-nicht-wert/kein-wechselakku-kein-kartenslot-.../96327,4313863,4314441,read.html#msg-4314441" id="ltlmsg4314441" style="display: inline;">Re: Kein Wechselakku, kein Kartenslot ...</a></p><p class="meta">Niaxa&nbsp;|&nbsp;08:33</p></li>
+<li><div class="dh2 text1"><a href="http://forum.golem.de/kommentare/games/need-for-speed-im-test-soap-opera-mit-rennautos/96333,list.html"><strong>Need for Speed im Test</strong> Soap Opera mit Rennautos</a></div><p><a href="http://forum.golem.de/kommentare/games/need-for-speed-im-test-soap-opera-mit-rennautos/cool-next-gen-racing-game-mit-30-fps/96333,4313747,4314440,read.html#msg-4314440" id="ltlmsg4314440" style="display: inline;">Re: Cool Next Gen Racing Game mit 30 FPS!</a></p><p class="meta">blackhawk2014&nbsp;|&nbsp;08:32</p></li>
+<li><div class="dh2 text1"><a href="http://forum.golem.de/kommentare/games/need-for-speed-im-test-soap-opera-mit-rennautos/96333,list.html"><strong>Need for Speed im Test</strong> Soap Opera mit Rennautos</a></div><p><a href="http://forum.golem.de/kommentare/games/need-for-speed-im-test-soap-opera-mit-rennautos/identitaetskriese/96333,4314395,4314438,read.html#msg-4314438" id="ltlmsg4314438" style="display: inline;">Re: Identitätskriese</a></p><p class="meta">Kaiopa&nbsp;|&nbsp;08:30</p></li>
+<li><div class="dh2 text1"><a href="http://forum.golem.de/kommentare/wirtschaft/mbb-2015-google-will-nicht-mehr-gegner-der-telekom-konzerne-sein/96338,list.html"><strong>MBB 2015</strong> Google will nicht mehr Gegner der Telekom-Konzerne sein</a></div><p><a href="http://forum.golem.de/kommentare/wirtschaft/mbb-2015-google-will-nicht-mehr-gegner-der-telekom-konzerne-sein/kein-inhalt/96338,4314436,4314436,read.html#msg-4314436" id="ltlmsg4314436" style="display: inline;">Kein Inhalt</a></p><p class="meta">Horsty&nbsp;|&nbsp;08:28</p></li>
+<li><div class="dh2 text1"><a href="http://forum.golem.de/kommentare/wirtschaft/microsoft-onedrive-speicherplatz-wird-fuer-kunden-deutlich-reduziert/96326,list.html"><strong>Microsoft</strong> Onedrive-Speicherplatz wird für Kunden deutlich reduziert</a></div><p><a href="http://forum.golem.de/kommentare/wirtschaft/microsoft-onedrive-speicherplatz-wird-fuer-kunden-deutlich-reduziert/zu-teuer-aber-noch-teurer/96326,4314372,4314435,read.html#msg-4314435" id="ltlmsg4314435" style="display: inline;">Re: Zu teuer aber noch teurer</a></p><p class="meta">Niaxa&nbsp;|&nbsp;08:27</p></li>
+    </ol>
+</section><!-- .g.g4#large-forum -->
+<hr class="implied">
+<!-- / FORUM --><section class="g g2" id="small-ticker">
+    <div class="dh1"><a href="http://www.golem.de/ticker/">Ticker »</a></div>
+    <ol class="list-tickers">
+	        <li>
+            <div class="dh2 text1"><a id="tial_117275" href="http://www.golem.de/news/4-5-g-huawei-startet-1-gbit-s-in-europa-im-mobilfunk-1511-117275.html" title="4,5 G: Huawei startet 1 GBit/s in Europa im Mobilfunk"><strong>4,5 G</strong> Huawei startet 1 GBit/s in Europa im Mobilfunk</a></div>
+            <p class="meta">23:51</p>
+        </li>
+	        <li>
+            <div class="dh2 text1"><a id="tial_117274" href="http://www.golem.de/news/linux-distribution-fedora-23-testet-gebuendelte-desktop-apps-1511-117274.html" title="Linux-Distribution: Fedora 23 testet gebündelte Desktop-Apps"><strong>Linux-Distribution</strong> Fedora 23 testet gebündelte Desktop-Apps</a></div>
+            <p class="meta">18:16</p>
+        </li>
+	        <li>
+            <div class="dh2 text1"><a id="tial_117273" href="http://www.golem.de/news/routerzwang-bundestag-will-gesetzentwurf-unveraendert-beschliessen-1511-117273.html" title="Routerzwang: Bundestag will Gesetzentwurf unverändert beschließen"><strong>Routerzwang</strong> Bundestag will Gesetzentwurf unverändert beschließen</a></div>
+            <p class="meta">16:48</p>
+        </li>
+	        <li>
+            <div class="dh2 text1"><a id="tial_117272" href="http://www.golem.de/news/mbb-2015-google-will-nicht-mehr-gegner-der-telekom-konzerne-sein-1511-117272.html" title="MBB 2015: Google will nicht mehr Gegner der Telekom-Konzerne sein"><strong>MBB 2015</strong> Google will nicht mehr Gegner der Telekom-Konzerne sein</a></div>
+            <p class="meta">15:37</p>
+        </li>
+	        <li>
+            <div class="dh2 text1"><a id="tial_117271" href="http://www.golem.de/news/beta-phase-vivaldi-browser-unterstuetzt-erweiterungen-und-h-264-1511-117271.html" title="Beta-Phase: Vivaldi-Browser unterstützt Erweiterungen und H.264"><strong>Beta-Phase</strong> Vivaldi-Browser unterstützt Erweiterungen und H.264</a></div>
+            <p class="meta">15:27</p>
+        </li>
+	        <li>
+            <div class="dh2 text1"><a id="tial_117265" href="http://www.golem.de/news/mozilla-firefox-42-erscheint-mit-schutzschild-gegen-tracking-1511-117265.html" title="Mozilla: Firefox 42 erscheint mit &quot;Schutzschild&quot; gegen Tracking"><strong>Mozilla</strong> Firefox 42 erscheint mit "Schutzschild" gegen Tracking</a></div>
+            <p class="meta">15:00</p>
+        </li>
+	        <li>
+            <div class="dh2 text1"><a id="tial_117268" href="http://www.golem.de/news/carbon-tablet-und-yoga-lenovo-plant-neue-x1-modelle-1511-117268.html" title="Carbon, Tablet und Yoga: Lenovo plant neue X1-Modelle"><strong>Carbon, Tablet und Yoga</strong> Lenovo plant neue X1-Modelle</a></div>
+            <p class="meta">14:39</p>
+        </li>
+	        <li>
+            <div class="dh2 text1"><a id="tial_117270" href="http://www.golem.de/news/activision-call-of-duty-kauft-candy-crush-1511-117270.html" title="Activision: Call of Duty kauft Candy Crush"><strong>Activision</strong> Call of Duty kauft Candy Crush</a></div>
+            <p class="meta">14:31</p>
+        </li>
+	    </ol><!-- .list-tickers -->
+</section><!-- .g.g2#small-ticker -->
+<hr class="implied">
+<div class="specialletters">
+<ol class="text1">
+<li style="width:66px;"><a href="http://www.golem.de/specials/">Themen</a></li>
+<li><a href="http://www.golem.de/specials/a/">A</a></li>
+<li><a href="http://www.golem.de/specials/b/">B</a></li>
+<li><a href="http://www.golem.de/specials/c/">C</a></li>
+<li><a href="http://www.golem.de/specials/d/">D</a></li>
+<li><a href="http://www.golem.de/specials/e/">E</a></li>
+<li><a href="http://www.golem.de/specials/f/">F</a></li>
+<li><a href="http://www.golem.de/specials/g/">G</a></li>
+<li><a href="http://www.golem.de/specials/h/">H</a></li>
+<li><a href="http://www.golem.de/specials/i/">I</a></li>
+<li><a href="http://www.golem.de/specials/j/">J</a></li>
+<li><a href="http://www.golem.de/specials/k/">K</a></li>
+<li><a href="http://www.golem.de/specials/l/">L</a></li>
+<li><a href="http://www.golem.de/specials/m/">M</a></li>
+<li><a href="http://www.golem.de/specials/n/">N</a></li>
+<li><a href="http://www.golem.de/specials/o/">O</a></li>
+<li><a href="http://www.golem.de/specials/p/">P</a></li>
+<li><a href="http://www.golem.de/specials/q/">Q</a></li>
+<li><a href="http://www.golem.de/specials/r/">R</a></li>
+<li><a href="http://www.golem.de/specials/s/">S</a></li>
+<li><a href="http://www.golem.de/specials/t/">T</a></li>
+<li><a href="http://www.golem.de/specials/u/">U</a></li>
+<li><a href="http://www.golem.de/specials/v/">V</a></li>
+<li><a href="http://www.golem.de/specials/w/">W</a></li>
+<li><a href="http://www.golem.de/specials/x/">X</a></li>
+<li><a href="http://www.golem.de/specials/y/">Y</a></li>
+<li><a href="http://www.golem.de/specials/z/">Z</a></li>
+<li style="width:16px;"><a href="http://www.golem.de/specials/0/">#</a></li>
+</ol>
+&nbsp;
+<hr class="implied">
+</div>
+<style>
+.topics { padding-bottom:20px; }
+.topics li a { color: #888; font-weight: 400; }
+.topics li.tsect { margin-top:0.8em; }
+.topics li.tsect a { color: #888; font-weight: 700; }
+</style>
+<div class="topics">
+    <ul class="g g-ie6 text1" style="width:114px">
+<li class="tsect"><a href="http://www.golem.de/specials/golem.de/">Golem.de</a></li>
+<li class="tsect"><a href="http://www.golem.de/specials/test/">Tests</a></li>
+<li class="tsect"><a href="http://www.golem.de/specials/pc-hardware/">PC-Hardware</a></li>
+<li><a href="http://www.golem.de/specials/cpu/">Prozessoren</a></li>
+<li><a href="http://www.golem.de/specials/grafikhardware/">Grafikkarten</a></li>
+<li><a href="http://www.golem.de/specials/eingabegeraet/">Eingabegeräte</a></li>
+<li><a href="http://www.golem.de/specials/speichermedien/">Speichermedien</a></li>
+<li><a href="http://www.golem.de/specials/4k/">4K</a></li>
+<li><a href="http://www.golem.de/specials/mini-pc/">Mini-PC</a></li>
+<li><a href="http://www.golem.de/specials/router/">Router</a></li>
+<li><a href="http://www.golem.de/specials/usb/">USB</a></li>
+<li class="tsect"><a href="http://www.golem.de/specials/foto/">Digitale Fotografie</a></li>
+    </ul>
+
+    <ul class="g g-ie6 text1" style="width:126px">
+<li class="tsect"><a href="http://www.golem.de/specials/desktop-applikationen/">Software</a></li>
+<li><a href="http://www.golem.de/specials/browser/">Browser</a></li>
+<li><a href="http://www.golem.de/specials/chrome/">Chrome</a></li>
+<li><a href="http://www.golem.de/specials/firefox/">Firefox</a></li>
+<li><a href="http://www.golem.de/specials/bittorrent/">Bittorrent</a></li>
+<li><a href="http://www.golem.de/specials/linux/">Linux</a></li>
+<li><a href="http://www.golem.de/specials/macosx/">Mac OSX</a></li>
+<li><a href="http://www.golem.de/specials/windows/">Windows</a></li>
+<li><a href="http://www.golem.de/specials/open-source/">Open Source</a></li>
+<li><a href="http://www.golem.de/specials/api/">API</a></li>
+<li class="tsect"><a href="http://www.golem.de/specials/softwareentwicklung/">Softwareentwicklung</a></li>
+<li><a href="http://www.golem.de/specials/programmiersprache/">Programmiersprache</a></li>
+<li><a href="http://www.golem.de/specials/html5/">HTML5</a></li>
+<li><a href="http://www.golem.de/specials/docker/">Docker</a></li>
+    </ul>
+
+    <ul class="g g-ie6 text1" style="width:114px">
+<li class="tsect"><a href="http://www.golem.de/specials/mobil/">Mobil</a></li>
+<li><a href="http://www.golem.de/specials/akku/">Akku</a></li>
+<li><a href="http://www.golem.de/specials/android/">Android</a></li>
+<li><a href="http://www.golem.de/specials/cyanogenmod/">Cyanogenmod</a></li>
+<li><a href="http://www.golem.de/specials/ios/">iOS</a></li>
+<li><a href="http://www.golem.de/specials/windows-phone-8/">Windows Phone</a></li>
+<li><a href="http://www.golem.de/specials/mobilfunk/">Mobilfunk</a></li>
+<li><a href="http://www.golem.de/specials/oneplus/">Oneplus</a></li>
+<li><a href="http://www.golem.de/specials/smartphone/">Smartphone</a></li>
+<li><a href="http://www.golem.de/specials/smartwatch/">Smartwatch</a></li>
+<li><a href="http://www.golem.de/specials/tablet/">Tablet</a></li>
+<li><a href="http://www.golem.de/specials/wearable/">Wearable</a></li>
+<li><a href="http://www.golem.de/specials/streaming/">Streaming</a></li>
+<li><a href="http://www.golem.de/specials/whatsapp/">Whatsapp</a></li>
+    </ul>
+
+    <ul class="g g-ie6 text1" style="width:120px">
+<li class="tsect"><a href="http://www.golem.de/specials/games/">Games</a></li>
+<li><a href="http://www.golem.de/specials/spieletest/">Spieletests</a></li>
+<li><a href="http://www.golem.de/specials/oculus-rift/">Oculus Rift</a></li>
+<li><a href="http://www.golem.de/specials/spielekonsole/">Spielekonsole</a></li>
+<li><a href="http://www.golem.de/specials/playstation4">Playstation 4</a></li>
+<li><a href="http://www.golem.de/specials/xbox-one/">Xbox One</a></li>
+<li><a href="http://www.golem.de/specials/steam/">Steam</a></li>
+<li class="tsect"><a href="http://www.golem.de/specials/hausautomation/">Hausautomation</a></li>
+<li><a href="http://www.golem.de/specials/smarthome/">Smarthome</a></li>
+<li><a href="http://www.golem.de/specials/led-lampe/">LED-Lampe</a></li>
+<li class="tsect"><a href="http://www.golem.de/specials/diy-do-it-yourself/">DIY - Do it yourself</a></li>
+<li><a href="http://www.golem.de/specials/anleitung/">Anleitung</a></li>
+<li><a href="http://www.golem.de/specials/raspberry-pi/">Raspberry Pi</a></li>
+    </ul>
+
+    <ul class="g g-ie6 text1" style="width:130px">
+<li class="tsect"><a href="http://www.golem.de/specials/security/">Security</a></li>
+<li><a href="http://www.golem.de/specials/hacker/">Hacker</a></li>
+<li><a href="http://www.golem.de/specials/sicherheitsluecke/">Sicherheitslücke</a></li>
+<li><a href="http://www.golem.de/specials/tor-netzwerk/">TOR-Netzwerk</a></li>
+<li><a href="http://www.golem.de/specials/verschluesselung/">Verschlüsselung</a></li>
+<li><a href="http://www.golem.de/specials/ccc/">Chaos Computer Club</a></li>
+<li class="tsect"><a href="http://www.golem.de/specials/netzpolitik/">Netzpolitik</a></li>
+<li><a href="http://www.golem.de/specials/datenschutz/">Datenschutz</a></li>
+<li><a href="http://www.golem.de/specials/nsa/">NSA</a></li>
+<li><a href="http://www.golem.de/specials/ueberwachung/">Überwachung</a></li>
+<li><a href="http://www.golem.de/specials/vorratsdatenspeicherung/">Vorratsdatenspeicherung</a></li>
+<li><a href="http://www.golem.de/specials/europaeische-union/">Europäische Union</a></li>
+<li><a href="http://www.golem.de/specials/icann/">Icann</a></li>
+    </ul>
+
+    <ul class="g g-ie6 text1" style="width:124px">
+<li class="tsect"><a href="http://www.golem.de/specials/wissenschaft/">Wissenschaft</a></li>
+<li><a href="http://www.golem.de/specials/3d-drucker/">3D-Drucker</a></li>
+<li><a href="http://www.golem.de/specials/augmented-reality/">Augmented Reality</a></li>
+<li><a href="http://www.golem.de/specials/auto/">Automobil</a></li>
+<li><a href="http://www.golem.de/specials/cloud-computing/">Cloud Computing</a></li>
+<li><a href="http://www.golem.de/specials/drohne/">Drohne</a></li>
+<li><a href="http://www.golem.de/specials/ki/">Künstliche Intelligenz</a></li>
+<li><a href="http://www.golem.de/specials/robots/">Roboter</a></li>
+<li><a href="http://www.golem.de/specials/raumfahrt/">Raumfahrt</a></li>
+<li><a href="http://www.golem.de/specials/quantencomputer/">Quantencomputer</a></li>
+<li><a href="http://www.golem.de/specials/supercomputer/">Supercomputer</a></li>
+<li><a href="http://www.golem.de/specials/virtuelle-realitaet/">Virtuelle Realität</a></li>
+    </ul>
+
+    <ul class="g g-ie6 text1" style="width:92px">
+<li class="tsect"><a href="http://www.golem.de/specials/wirtschaft/">Wirtschaft</a></li>
+<li><a href="http://www.golem.de/specials/amazon/">Amazon</a></li>
+<li><a href="http://www.golem.de/specials/apple/">Apple</a></li>
+<li><a href="http://www.golem.de/specials/bitcoin/">Bitcoin</a></li>
+<li><a href="http://www.golem.de/specials/facebook/">Facebook</a></li>
+<li><a href="http://www.golem.de/specials/google/">Google</a></li>
+<li><a href="http://www.golem.de/specials/ibm/">IBM</a></li>
+<li><a href="http://www.golem.de/specials/intel/">Intel</a></li>
+<li><a href="http://www.golem.de/specials/microsoft/">Microsoft</a></li>
+<li><a href="http://www.golem.de/specials/mozilla/">Mozilla</a></li>
+<li><a href="http://www.golem.de/specials/samsung/">Samsung</a></li>
+<li><a href="http://www.golem.de/specials/sony/">Sony</a></li>
+<li><a href="http://www.golem.de/specials/yahoo/">Yahoo</a></li>
+<li><a href="http://www.golem.de/specials/wikipedia/">Wikipedia</a></li>
+    </ul>
+
+    <div class="text1" style="clear: both">&nbsp;</div>
+</div>
+
+            </div><!-- .g.g6.g-ie6.activity -->
+
+        </div><!-- #screen -->
+
+<footer id="footer" style="margin-bottom: 60px;">
+    <ul>
+        <li><a href="http://www.golem.de/">Home</a></li>
+        <li><a href="http://www.golem.de/ticker/">Ticker</a></li>
+        <li><a href="http://www.golem.de/sonstiges/rss.html">RSS</a></li>
+        <li><a href="http://api.golem.de/">API</a></li>
+        <li><a href="http://forum.golem.de/">Forum</a></li>
+        <li><a href="http://www.golem.de/sonstiges/zusatzdienste.html">Zusatzdienste</a></li>
+        <li><a href="http://jobs.golem.de/">Jobs</a></li>
+        <li><a href="http://www.golem.de/sonstiges/impressum.html">Impressum</a></li>
+        <li><a href="http://www.golem.de/sonstiges/leitbild.html">Leitbild</a></li>
+        <li><a href="http://www.golem.de/sonstiges/Datenschutz.html">Datenschutz</a></li>
+        <li><a href="http://www.golem.de/sonstiges/werbung.html">Werbung</a></li>
+        <li><a href="http://www.golem.de/sonstiges/ansicht/">Ansicht</a></li>
+        <li><a id="gftroba" href="http://www.iqm.de/Nutzungsbasierte-Onlinewerbung" rel="nofollow">Nutzungsbasierte Onlinewerbung</a></li>
+        <li><span id="gftrhook"></span></li>
+    </ul>
+    <p>© 1997—2015 <a href="http://www.golem.de/">Golem.de</a>. Alle Rechte vorbehalten.</p>
+</footer><!-- #footer -->
+
+<div style="display: block; visibility: visible; position: fixed; bottom: 0px; left: 50%; color: white; margin-left: -480px; width: 920px; padding: 10px 20px; z-index: 10000; background-color: black;" id="golem-cookie-accept">
+<button class="text1" onclick="golemAcceptCookies();" style="border:1px solid white;float:right;background-color:black;color:white;padding:5px;font-size:12px;line-height:14px;margin:5px 0 0 20px;cursor:pointer;">Ich habe verstanden!</button>
+<div class="text1" style="text-align:center;">
+Golem.de benutzt Cookies, um seinen Lesern das beste Webseiten-Erlebnis zu ermöglichen.
+Außerdem werden teilweise auch Cookies von Diensten Dritter gesetzt.
+Weiterführende Informationen erhalten Sie in der <a href="http://www.golem.de/sonstiges/Datenschutz.html">Datenschutzerklärung</a> von Golem.de.
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+  $(document)
+    .trigger('HP_AFTERLOAD')
+    .trigger('HP_FORUMLINKS').trigger('HP_SPECIALLINKS')
+    .trigger('HP_VIDEOCAR').trigger('DO_REFCOOKIE').trigger('DO_VIEWHINT')
+    .trigger('DO_RECENTLY').trigger('SUPPORT_IE');
+});
+-->
+</script>
+
+<div class="golem-gallery2-template">
+    <ul class="golem-gallery2-list"></ul>
+    <ul class="golem-gallery2-nav">
+        <li class="golem-gallery2-nav-prev"><img src="./Seite3_files/links.png"></li>
+        <li class="golem-gallery2-nav-count"><span class="golem-gallery2-nav-count-current"></span><span>&nbsp;/&nbsp;</span><span class="golem-gallery2-nav-count-all"></span></li>
+        <li class="golem-gallery2-nav-next"><img src="./Seite3_files/rechts.png"></li>
+    </ul>
+    <ul class="golem-gallery2-footer">
+        <li class="golem-gallery2-footer-hide"><img src="./Seite3_files/minus.png"></li>
+        <li class="golem-gallery2-footer-title"></li>
+        <li class="golem-gallery2-footer-fullscreen"><img src="./Seite3_files/icon-ggfs_w2.png"></li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="./Seite3_files/golemgallery2_70-min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  Golem.Gallery2.init(function(event) { var e = event; });
+});
+</script>
+
+<script type="text/javascript" src="./Seite3_files/account_js_rl_1_3.php"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	if(null == document.cookie.match(/golem-cookie-accept/)) {
+		var el = document.getElementById("golem-cookie-accept")
+			, elF = document.getElementById('footer');
+		el.style.display='block';
+		el.style.visibility='visible';
+		elF.style['margin-bottom']=''+el.clientHeight+'px';
+	}
+});
+function golemAcceptCookies() {
+	document.cookie = "golem-cookie-accept=true; domain=golem.de; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+	var el = document.getElementById("golem-cookie-accept")
+		, elF = document.getElementById('footer');
+	el.style.display='none';
+	el.style.visibility='hidden';
+	elF.style['margin-bottom']=0;
+
+}
+</script>
+
+<!--[if IE 6]>
+<script src="/staticrl/scripts/external/belated-png-0.0.8-min.js"></script>
+<script>
+    DD_belatedPNG.fix('#header img, .list-articles li img, .forum .threads .dh2, .ticker .is-image, .ticker .is-video, .cluster-video a, .cluster-video figcaption span');
+</script>
+<![endif]-->
+</div><!-- #grandwrapper -->
+	</div><!-- #golemContentToHide -->
+<div class="gg_fullscreen">
+  <ul class="gg_fullscreen"></ul>
+  <div class="gg_fullscreenIndex gg_solid">
+   <ul class="gg_prebackcounter">
+    <li class="gg_prebackcounterItem"><img src="./Seite3_files/links.png" id="gg_fullScreenSubLeft" class="gg_subIconPrevPic  gg_activeI gg_cursorpointer"></li>
+    <li class="gg_prebackcounterItem gg_fullscreenIndexCounter">&nbsp;0/00</li>
+    <li class="gg_prebackcounterItem"><img src="./Seite3_files/rechts.png" id="gg_fullScreenSubRight" class="gg_subIconNextPic gg_activeI gg_cursorpointer"></li>
+   </ul>
+  </div>
+  <div class="gg_fullscreenSub gg_active">
+    <div class="gg_fullscreenSubText"></div>
+  </div>
+  <img src="./Seite3_files/fullscreen.png" id="gg_fullScreenSubFSsmall" class="gg_fullscreenIconFS gg_cursorpointer" title="Zum Artikel" alt="Zum Artikel">
+  <img src="./Seite3_files/plus.png" id="gg_fullScreenSubPlus" class="gg_subIcon gg_cursorpointer">
+  <img src="./Seite3_files/minus.png" id="gg_fullScreenSubMinus" class="gg_subIcon gg_active gg_cursorpointer">
+</div><div id="iqdCheckPointHeight">
+<script type="text/javascript">
+var IQDComplete = { init: function () { return true; } };
+</script>
+</div>
+<div id="ivwcontainer">
+<!-- SZM VERSION="2.0" -->
+<script type="text/javascript" src="./Seite3_files/iam.js"></script>
+<script type="text/javascript">
+<!--
+var iam_data = {
+"st":"golem",
+"cp":"G_INET",
+"sv":"i2"
+};
+iom.c(iam_data, 1);
+//-->
+</script>
+<!--/SZM -->
+
+<script type="text/javascript">
+(function(d,n){
+    var g=d.createElement(n),s=d.getElementsByTagName(n)[0];
+    g.async=true; g.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    s.parentNode.insertBefore(g,s);
+})(document,'script');
+(function(d,n){
+    var g=d.createElement(n),s=d.getElementsByTagName(n)[0];
+    g.async=true; g.src='/staticrl/scripts/adsense/golem_csi-71-min.js';
+    s.parentNode.insertBefore(g,s);
+})(document,'script');
+</script>
+<div id="iqadtile11">
+<script type="text/javascript">
+if (typeof AdController !== 'undefined') {
+    var ord = window.ord || Math.floor(Math.random() * 1e16);
+    document.write('<scr' + 'ipt type="text/javascript" src="http://ad.doubleclick.net/N183/adj/golem/artikel;sz=111x11;ord=' + ord + '?"></scr' + 'ipt>');
+    /* AdController.render('iqadtile11'); */
+    AdController.finalize();
+}
+</script>
+</div>
+<script type="text/javascript">
+<!--
+document.write('<script type="text/javascript" src="http://ads.golem.de/sdcv.js"></scr' + 'ipt>');
+
+var disableStr='ga-disable-UA-518800-';
+if(document.cookie.indexOf(disableStr+'2=true')>-1){for(var i=1;i<8;i++){window[disableStr+i]=true;}}
+var _gaq = _gaq || [];
+_gaq.push(['_gat._anonymizeIp'],
+['_setAccount','UA-518800-2'],['_setDomainName','golem.de'],['_setCustomVar',1,'IQCV',((typeof iqdGolemCheckVar==="string")&&(iqdGolemCheckVar==="true"))?'1':(((typeof subDomainCheckVar!=="undefined")&&(subDomainCheckVar===true))?'3':'0'),2],['_trackPageview'],['_trackPageLoadTime']);
+(function(d,t) {
+    var ga = d.createElement(t); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(ga, s);
+})(document,'script');
+var _gcpx = _gcpx || [];
+$(document).ready(function() {
+  $('body').append("<img src='http://cpx.golem.de/cpx.php?class=1&amp;aid=116468&amp;page=3&amp;ts="+(Math.round(new Date().getTime()/1000))+"&amp;ref="+escape(document.referrer)+"'>");
+$('body').append('<embed id="gflbd3" src="/staticrl/swf/flbd3.swf" width="1px" height="1px" type="application/x-shockwave-flash"></embed>');
+_gcpx.push(['pi','d','article/116468/3']);
+_gcpx.push(['var','author','al']); _gcpx.push(['var','author','che']); _gcpx.push(['var','iqcv',(((typeof iqdGolemCheckVar==="string")&&(iqdGolemCheckVar==="true"))?'1':(((typeof subDomainCheckVar!=="undefined")&&(subDomainCheckVar===true))?'3':'0'))]);
+_gcpx.push(['var','special',['inet','maschinelleslernen','tsilkcalb','cortana','instantmessenger','neuronalesnetzwerk','siri','internet']]);
+(function(b){var a=0;if(navigator.plugins&&navigator.plugins["Shockwave Flash"]){a=1}else{if(navigator.mimeTypes){var d=navigator.mimeTypes["application/x-shockwave-flash"];if(d&&d.enabledPlugin){a=1}}}if(navigator.userAgent.indexOf("MSIE")>-1){try{new ActiveXObject("ShockwaveFlash.ShockwaveFlash");a=3}catch(c){a*=2}}else{if($("embed").length+$("object").length>0){a=2;$("object, embed").each(function(){if($(this).css("display")!=="none"&&typeof document.embeds[this.id]!=="undefined"&&"PercentLoaded" in document.embeds[this.id]){a=3}})}else{if($("div[bginactive]").length>0){a=2}}}if(typeof b==="function"){b(a)}else{return a}})
+(function(r){_gcpx.push(['var','flbd',r]);});
+(function(d,n){
+  var g=d.createElement(n),s=d.getElementsByTagName(n)[0];
+  g.async=true; g.src='/staticrl/scripts/golem_cpxl_70-min.js';
+  s.parentNode.insertBefore(g,s);
+})(document,'script');
+});
+//-->
+</script><script type="text/javascript" src="http://ads.golem.de/sdcv.js"></script>
+<noscript>
+&lt;img src="http://cpx.golem.de/cpx.php?class=1&amp;amp;aid=116468&amp;amp;page=3&amp;amp;ts=1446622782&amp;amp;ref=nojs" alt="" width="1" height="1" /&gt;
+&lt;img src="http://cpxl.golem.de/gif?u=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468-3.html&amp;amp;d=1446622782&amp;amp;f=pi&amp;amp;v=d&amp;amp;t=article%2F116468%2F3&amp;amp;z%5Bauthor%5D%5B%5D=al&amp;amp;z%5Bauthor%5D%5B%5D=che" alt="" width="1" height="1" /&gt;&lt;img src="http://ads.golem.de/cpxl.php?u=http%3A%2F%2Fwww.golem.de%2Fnews%2Fdeep-learning-maschinen-die-wie-menschen-lernen-1510-116468-3.html&amp;amp;d=1446622782&amp;amp;f=pi&amp;amp;v=d&amp;amp;t=article%2F116468%2F3&amp;amp;z%5Bauthor%5D%5B%5D=al&amp;amp;z%5Bauthor%5D%5B%5D=che" alt="" width="1" height="1" /&gt;</noscript>
+<img src="./Seite3_files/9ead9fbe853141d488194b8217eec420" width="1" height="1" alt="">
+</div>
+<script type="text/javascript"><!--
+if (Golem.grsess!=undefined && Golem.grsess==1 && Golem.gRefReadCookie("phorum_session_v5_dev")==null) {
+$(document).ready(function(){
+  $("span#gftrhook").html('<a href="http://www.vibrantmedia.com/whatisIntelliTXT.asp?cc=de" target="_blank">Gr&uuml;ne Links</a>');
+});
+(function(d,n){
+  var g=d.createElement(n),s=d.getElementsByTagName(n)[0];
+  g.async=true; g.src='http://golem.de.intellitxt.com/intellitxt/front.asp?ipid=28168';
+  s.parentNode.insertBefore(g,s);
+})(document,'script');
+}
+//--></script>
+
+<div id="fb-root"></div>
+<script type="text/javascript">
+<!--
+var _gaq=_gaq || [];
+var shareUrl='http://www.golem.de/news/deep-learning-maschinen-die-wie-menschen-lernen-1510-116468.html',
+    ___gcfg={lang: 'de'};
+//-->
+</script>    
+
+<img src="./Seite3_files/cpx.php"><embed id="gflbd3" src="/staticrl/swf/flbd3.swf" width="1px" height="1px" type="application/x-shockwave-flash"></body></html>

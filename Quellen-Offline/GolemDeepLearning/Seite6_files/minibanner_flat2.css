@@ -1,0 +1,91 @@
+html, body {
+    margin:0; padding:0;
+    font-family: 'Droid Sans', sans-serif;
+    color:white;
+    font-size:18px;
+}
+
+#golemabo_minibanner {
+    display:block;
+    position:relative;
+    width:920px;
+    height:30px;
+    padding-left:20px;
+    padding-right:20px;
+    background-color:#7fb71e;
+    line-height:30px;
+    cursor:pointer;
+    -webkit-transition:background-color 500ms 250ms, all 500ms ;
+    transition:background-color 500ms 250ms, all 500ms ;
+    overflow:hidden;
+}
+
+#golemabo_minibanner:hover {
+    background:#2ea5c5;
+}
+
+#golemabo_minibanner div.claim {
+    font-weight:700;
+    position:absolute;
+    top:0;
+    left:100px;
+}
+#golemabo_minibanner div.vorteile, #golemabo_minibanner div.cfa, #golemabo_minibanner a.cfa {
+    font-weight:400;
+    font-size:14px;
+    position:absolute;
+    top:0;
+    -webkit-transition:all 500ms ;
+    transition:all 500ms ;
+}
+
+#golemabo_minibanner div.vorteile {
+    left:260px;
+}
+
+#golemabo_minibanner div.cfa, #golemabo_minibanner a.cfa {
+    right:10px;
+    /*background-color:#2ea5c5;*/
+    padding-left:15px;padding-right:15px;
+    color:white;
+    text-decoration:none;
+    -webkit-transition:background-color 500ms, all 500ms  ;
+    transition:background-color 500ms, all 500ms ;
+}
+#golemabo_minibanner:hover div.cfa, #golemabo_minibanner:hover a.cfa {
+    background-color:black;
+}
+
+#golemabo_minibanner div.golem-accountpromo-img {
+    position:absolute;
+    top:0;left:5px;
+    width:80px;
+    height:100%;
+    display:block;
+    background-size:100%;
+    background-position:0 5px;
+    background-repeat:no-repeat;
+    -webkit-transition:opacity 500ms 500ms, all 500ms ;
+    transition:opacity 500ms 500ms, all 500ms;
+}
+
+#golemabo_minibanner div.golem-accountpromo-img.mit {
+    background-image:url(./img/display-mit-werbung5.png);
+    opacity:1;
+    z-index:0;
+    -webkit-transition:all 500ms ;
+    transition:all 500ms ;
+}
+#golemabo_minibanner div.golem-accountpromo-img.ohne {
+    background-image:url(./img/display-ohne-werbung5.png);
+    opacity:0;
+    z-index:10;
+    -webkit-transition:all 500ms ;
+    transition:all 500ms ;
+}
+
+#golemabo_minibanner ul.golem-accountpromo-vorteile {
+    padding:0; margin:0;
+}
+
+#golemabo_minibanner:hover div.golem-accountpromo-img.ohne { opacity:1; }

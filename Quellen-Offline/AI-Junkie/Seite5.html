@@ -1,0 +1,182 @@
+
+<!-- saved from url=(0046)http://www.ai-junkie.com/ann/evolved/nnt5.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Author" content="Mat Buckland">
+<meta name="Keywords" content="artificial intelligence neural network tutorial introduction ai">
+<meta name="Description" content="neural network tutorial in plain english">
+<link rel="File-List" href="http://www.ai-junkie.com/ann/evolved/nnt5_files/filelist.xml">
+
+<style>
+<!--
+ p.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0cm; margin-right:0cm; margin-top:0cm}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]-->
+<style fprolloverstyle="">A:hover {color: red; font-weight: bold}
+</style>
+<!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+<style type="text/css"></style></head>
+
+<body text="#C0C0C0" bgcolor="#000066">
+
+<p class="MsoNormal" align="center"><a href="http://www.ai-junkie.com/">
+<img border="0" src="./Seite5_files/logo.jpg" width="469" height="78"></a></p>
+<hr>
+<p class="MsoNormal" align="center">&nbsp;</p>
+
+<p class="MsoNormal"><b>
+<span style="font-size:14.0pt;font-family:Arial;color:#FFFFCC; text-decoration:underline">So, what’s our 
+project going to be fup?</span></b></p>
+<p class="MsoNormal"><b><span style="font-size:14.0pt;font-family:Arial">&nbsp;</span></b></p>
+<p class="MsoNormal"><span style="font-family: Arial">We are going to evolve 
+virtual minesweepers to find and collect land-mines scattered about a very 
+simple 2D world. ( In the original version of this tutorial the program evolved 
+ants that collected food but I fancied a change. ;0) )</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial">This is a screenshot of the 
+application:</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal" align="center">
+<img border="0" src="./Seite5_files/screenshot_smart_sweepers.jpg" align="center" width="403" height="400"></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:
+Arial">As you can see it's a very simple display. The minesweepers are the 
+things that look like tanks and the land-mines are represented by the green dots. Whenever a 
+minesweeper finds a mine it is removed and another mine is randomly positioned 
+somewhere else in the world, thereby ensuring there is always a constant amount 
+of land-mines on display. The minesweepers drawn in red are the best performing 
+minesweepers the program has evolved so far. </span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">How is a neural net going to 
+control the movement of a minesweeper? Well, just like the control of a real tank, the 
+minesweepers are controlled by adjusting the speed of a left track and a right 
+track. By applying various forces to the left and right side of a minesweeper we can give it a full range of movement. So the 
+network requires two outputs, one to designate the speed of the left track, and 
+the other to designate the speed of the right track.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">The more thoughtful of you 
+may be wondering how on earth we can apply varying forces when all we've 
+discussed so far are binary networks outputting 1’s and 0’s. The secret to this 
+is that instead of using a simple step (threshold) activation function we use 
+one which softens the output of each neuron to produce a symmetrical curve. 
+There are several functions which will do this and we are going to use one 
+called the <font color="#FFFFCC"> <i>sigmoid</i></font> function. (sigmoid, or sigmoidal is just a posh way of 
+saying something is S shaped)</span></p>
+<p align="center"><span style="font-size: 12.0pt; font-family: Times New Roman">
+<!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025" DrawAspect="Content" ObjectID="_1090590365">
+ </o:OLEObject>
+</xml><![endif]--></span><img border="0" src="./Seite5_files/equation3.gif" width="180" height="57"></p>
+<p class="MsoNormal"><span style="font-family:Arial">This equation may look 
+intimidating to some of you but it’s very simple really. The <i>e</i> is a mathematical 
+constant which approximates to 2.7183, the </span><i>a</i>
+<span style="font-family:Arial">is the activation into the neuron and </span><i>p</i><span style="font-family:Arial"> is a number which 
+controls the shape of the curve. </span><i>p</i><span style="font-family:Arial"> 
+is usually set to 1.0.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">This function is terrific 
+and comes in handy for all sorts of different uses because&nbsp; it produces an 
+output like this:</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal" align="center"><img border="0" src="./Seite5_files/sigmoid.jpg" width="300" height="240"></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">The lower the value of  </span><i>p</i><span style="font-family:Arial"> 
+the more the curve begins to look like a step function. Also please note 
+this curve is always centred around 0.5. Negative activation values produce a 
+result less than 0.5, positive activation values produce a result greater than 
+0.5.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">Therefore, to obtain a 
+continuously graded output between 0 and 1 from our neurons we just have to put the 
+sum of all the inputs x weights through the sigmoid function and Bob’s your uncle! So that’s our outputs dealt 
+with, what about the inputs?</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">I have chosen to have four 
+inputs. Two of them represent a vector pointing to the closest land-mine and the 
+other two represent the direction the minesweeper is pointing. I call this 
+vector, the minesweepers look-at vector.&nbsp; These four inputs give the 
+minesweeper's brain - its neural network - everything it needs to know to figure 
+out how to orient itself towards the mines.</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal" align="center"><!--[if gte vml 1]><v:shapetype id="_x0000_t202"
+ coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1157" type="#_x0000_t202" alt="" style='width:405pt;
+ height:60pt' fillcolor="maroon" stroked="f" strokeweight=".35189mm">
+ <v:textbox>
+<table cellspacing="0" cellpadding="0" width="100%" height="100%">
+  <tr>
+    <td align="center">
+    <p align="left">
+    <span style="font-family: Arial; font-style: italic; background: #800000">
+    This is not the time and place to start explaining what vectors are so if 
+    you do not understand them I suggest you break off and learn about them 
+    before you continue with this tutorial.</span></td>
+  </tr>
+</table>
+ </v:textbox>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="544" height="84" src="./Seite5_files/image001.gif" v:shapes="_x0000_s1157"><!--[endif]--></p>
+<p class="MsoNormal" align="center">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial">Now we have defined our 
+inputs and our outputs what about the hidden layer/s? How do we decide how many 
+layers we should have and how many neurons we should have in each layer? Well, 
+this is a matter of guesswork and something you will develop a ‘feel’ for. There 
+is no known rule of thumb although plenty of researchers have tried to come up 
+with one. By default the simulation uses one hidden layer that contains six neurons 
+although please spend some time experimenting with different numbers to see what 
+effect they may have. I’d like to emphasise here that the more you play around 
+with all the parameters the better the ‘feel’ you are going to develop and the 
+better your neural networks will be.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">Time to look at some code 
+now. Here's a quick breakdown of the important classes.</span></p>
+<p class="MsoNormal"><b><span style="font-size:14.0pt;font-family:Arial">&nbsp;</span></b></p>
+<p class="MsoNormal"><font face="Courier"><font color="#FFFFFF">CNeuralNet</font> </font><span style="font-family:Arial">
+is the neural net class (surprise surprise).</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><font face="Courier" color="#FFFFFF">CGenAlg</font><span style="font-family:Arial"> is the genetic 
+algorithm class.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><font face="Courier" color="#FFFFFF">CMineSweeper</font><span style="font-family:Arial"> 
+is a data and controller class for each minesweeper.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><font face="Courier" color="#FFFFFF">CController</font><span style="font-family:Arial"> 
+is the controller class which ties all the other classes together.</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><font face="Courier" color="#FFFFFF">CParams</font><font face="Arial"> is a 
+class which loads in all the parameters for the application. They can be found 
+in the file 'params.ini'. I strongly suggest you play around with the settings 
+in this file when you start to play around with the code.</font></p>
+<p class="MsoNormal">&nbsp;</p>
+<hr>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal" align="center"><b> <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt1.html">1</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt2.html">2</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt3.html">3</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt4.html">4</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt6.html">6</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt7.html">7</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt8.html">8</a></u>&nbsp; <font face="Arial">
+<a href="http://www.ai-junkie.com/ann/evolved/nnt6.html">Next</a>&nbsp; <a href="http://www.ai-junkie.com/index.html">Home</a></font></b></p>
+
+
+
+</body></html>

@@ -1,0 +1,511 @@
+
+<!-- saved from url=(0092)file:///D:/Programming/Eclipse/WSeminar/WSeminarArbeit/Quellen-Offline/AI-Junkie/Seite7.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Author" content="Mat Buckland">
+<meta name="Keywords" content="artificial intelligence neural network tutorial introduction ai">
+<meta name="Description" content="neural network tutorial in plain english">
+<link rel="File-List" href="http://www.ai-junkie.com/ann/evolved/nnt6_files/filelist.xml">
+
+<style>
+<!--
+ p.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0cm; margin-right:0cm; margin-top:0cm}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]-->
+<style fprolloverstyle="">A:hover {color: red; font-weight: bold}
+</style>
+<!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+<style type="text/css"></style></head>
+
+<body text="#C0C0C0" bgcolor="#000066">
+
+<p class="MsoNormal" align="center"><a href="http://www.ai-junkie.com/">
+<img border="0" src="./Seite6_files/logo.jpg" width="469" height="78"></a></p>
+<hr>
+
+<p class="MsoNormal">&nbsp;</p>
+
+<p class="MsoNormal"><b>
+<span style="font-size:14.0pt;font-family:Arial;color:#FFFFCC; text-decoration:underline">The CNeuralNet class</span></b></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">Let’s get started on the 
+neural network class, </span><font face="Courier" color="#FFFFFF">CNeuralNet</font><span style="font-family:Arial">. 
+We want this class to be flexible so it can be used in other projects and as 
+simple to use as possible. We need to be able to set up a neural network with 
+any amount of inputs and outputs and any amount of neurons in any amount of 
+hidden layers. &nbsp;So how do we do this? Well, 
+first we need to define structures for a neuron and a neuron layer.  Let’s have 
+a look at the definition of these structures… first the neuron:</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="90%" id="AutoNumber1" bgcolor="#808080">
+    <tbody><tr>
+      <td width="100%" bgcolor="#000080"><font color="#FFFFFF" face="Courier New" size="2">struct SNeuron</font><p>
+      <font face="Courier New" size="2" color="#FFFFFF">{</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp; //the number of inputs into 
+the neuron</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp; int m_NumInputs;</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp; //the weights for each input</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp; vector&lt;double&gt; m_vecWeight;</font></p>
+      <font color="#000000">
+<p>&nbsp;</p>
+</font><p><font color="#000000"></font><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp; //ctor</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp; SNeuron(int NumInputs);</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">};</font></p>
+      </td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial;">This is very 
+simple, we just need to keep a record of how many inputs there are into each 
+neuron and a std::vector of doubles in which we will store all the weights. 
+Remember, there's a weight for every input into the neuron. When a </span>
+<font face="Courier" color="#FFFFFF">SNeuron</font><span style="font-family:Arial;"> 
+object is created, all the weights are initialized with random values.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial;color:black">&nbsp;</span></p>
+<p class="MsoNormal" align="center"><!--[if gte vml 1]><v:shapetype id="_x0000_t202"
+ coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1025" type="#_x0000_t202" alt="" style='width:411.75pt;
+ height:349.5pt' fillcolor="black" strokecolor="#969696" strokeweight=".08731mm">
+ <v:textbox>
+<p class="MsoNormal" align="left"><b style="mso-bidi-font-weight:normal">
+<i style="mso-bidi-font-style:normal"><font color="#99CCFF">
+<span style="font-family: Arial">Programming note</span></font><o:p></o:p></i></b></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial; color: #99CCFF">
+<o:p>&nbsp;</o:p></span></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<font color="#99CCFF"><span style="font-family: Arial">std::vector is part of 
+the STL and is a ready made class for handling dynamic arrays. A vector is 
+created as seen above. Elements are added to it by using the method push_back(). 
+i.e. </span></font>
+<o:p></o:p>
+</i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial; color: #99CCFF">
+<o:p>&nbsp;</o:p></span></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<font color="#99CCFF"><span style="font-family: Arial">#include&lt;vector&gt;</span></font><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial; color: #99CCFF">
+<o:p>&nbsp;</o:p></span></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<font color="#99CCFF"><span style="font-family: Arial">std::vector&lt;int&gt; 
+MyFirstVector;</span></font><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial; color: #99CCFF">
+<o:p>&nbsp;</o:p></span></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<font color="#99CCFF"><span style="font-family: Arial">for (int i=0; i&lt; 10; i++)</span></font><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<font color="#99CCFF"><span style="font-family: Arial">{</span></font><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial"><span style="mso-tab-count:1">
+<font color="#99CCFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><font color="#99CCFF">
+MyFirstVector.push_back(i);</font></span><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial"><span style="mso-tab-count:1">
+<font color="#99CCFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><font color="#99CCFF">Cout &lt;&lt; 
+endl &lt;&lt; MyFirstVector[i];</font></span><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<font color="#99CCFF"><span style="font-family: Arial">}</span></font><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial; color: #99CCFF">
+<o:p>&nbsp;</o:p></span></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<font color="#99CCFF"><span style="font-family: Arial">To empty a vector we just 
+use the method: MyFirstVector.clear();</span></font><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial; color: #99CCFF">
+<o:p>&nbsp;</o:p></span></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<font color="#99CCFF"><span style="font-family: Arial">We can get the number of 
+elements in a vector by:<span style="mso-spacerun:yes">&nbsp; </span>
+MyFirstVector.size()</span></font><o:p></o:p></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial; color: #99CCFF">
+<o:p>&nbsp;</o:p></span></i></p>
+<p class="MsoNormal" align="left"><i style="mso-bidi-font-style:normal">
+<span style="font-family: Arial; color: #99CCFF">That’s it! No need to worry 
+about memory management, std::vector does it all for you. I shall be using them 
+throughout the program where appropriate</span></i></p>
+ </v:textbox>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="555" height="472" src="./Seite6_files/image001.gif" v:shapes="_x0000_s1025"><!--[endif]--></p>
+<!--[if !mso]--><!--[endif]-->
+<p align="left"><span style="font-family:Arial;">This is the 
+constructor for  </span><font face="Courier" color="#FFFFFF">SNeuron</font><span style="font-family:Arial;">:</span></p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="90%" id="AutoNumber2" bgcolor="#000080">
+    <tbody><tr>
+      <td width="100%" bordercolor="#000080">
+      <font color="#FFFFFF" size="2" face="Courier New">SNeuron::SNeuron(int NumInputs): m_NumInputs(NumInputs+1)</font><font color="#000000"><p></p>
+      </font>
+<p><font face="Courier New" size="2" color="#FFFFFF">{</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //we need an additional weight 
+for the bias hence the +1</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; for (int i=0; i&lt;NumInputs+1; 
+++i)</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; {</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //set up the weights 
+with an initial random value</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp; m_vecWeight.push_back(RandomClamped());</font></p>
+      <font color="#FFFFFF">
+<p><font face="Courier New" size="2">&nbsp; }</font></p>
+<p><font face="Courier New" size="2">}</font></p>
+</font>
+      </td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial;">This takes the 
+number of inputs going into the neuron as an argument and creates a vector of 
+random weights. One weight for each input.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial;">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial;">What’s that I 
+hear you say? There’s an extra weight there! Well I’m glad you spotted that 
+because that extra weight is quite important but to explain why it’s there I’m 
+going to have to do some more maths. Remember that 
+our activation was the sum of all the inputs x weights and that the output of 
+the neuron was dependent upon whether or not this activation exceeded a
+<font color="#FFFFCC"> <i>
+threshold</i></font> value (<i>t</i>)? And that this could be represented in equation 
+form by</span></p>
+<p class="MsoNormal"><span style="font-family:Arial;">&nbsp;</span></p>
+<p class="MsoNormal" align="center"><i>
+<span style="font-family: Times New Roman"><font size="5">x<sub>1</sub>w<sub>1</sub> 
++ x<sub>2</sub>w<sub>2</sub> + x<sub>3</sub>w<sub>3</sub>… + x<sub>n</sub>w<sub>n</sub> 
+&gt;= t</font></span></i><!--[if gte mso 9]><font size="5"><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1025" DrawAspect="Content" ObjectID="_1061509261">
+ </o:OLEObject>
+</xml></font><![endif]--></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family: Arial">Because the network 
+weights are going to be evolved it would be great if the threshold value could 
+be evolved too.</span><span style="font-family:Arial"> To make this easy I'm 
+going to use a little trick to make it appear 
+as a weight. All you have to do is subtract <i>t</i> from either side of the 
+equation and we get:</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal" align="center"><i>
+<span style="font-family: Times New Roman"><font size="5">x<sub>1</sub>w<sub>1</sub> 
++ x<sub>2</sub>w<sub>2</sub> + x<sub>3</sub>w<sub>3</sub>… + x<sub>n</sub>w<sub>n</sub> 
+– t &gt;= 0</font></span></i><!--[if gte mso 9]><font size="5"><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1026" DrawAspect="Content" ObjectID="_1061509262">
+ </o:OLEObject>
+</xml></font><![endif]--></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">or we can write this 
+another way:</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal" align="center"><i>
+<span style="font-family: Times New Roman"><font size="5">x<sub>1</sub>w<sub>1</sub> 
++ x<sub>2</sub>w<sub>2</sub> + x<sub>3</sub>w<sub>3</sub>… + x<sub>n</sub>w<sub>n</sub> 
++ (-1)t &gt;= 0</font></span></i><!--[if gte mso 9]><font size="5"><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1027" DrawAspect="Content" ObjectID="_1061509263">
+ </o:OLEObject>
+</xml></font><![endif]--></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial">So you can see (hopefully) 
+that we can treat the threshold as a weight that is always multiplied by an 
+input of -1. This is usually referred to as the <font color="#FFFFCC"> <i>bias</i></font>.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">And that's why 
+each neuron is initialized with one additional weight. Because now when the 
+network is evolved we don’t have to worry about the threshold value as it's built in with 
+the weights and will take care of itself. Good eh?</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">Lets get on with the rest 
+of the neural net code… The next structure defines a <font color="#FFFFCC">
+<i>layer</i></font> of neurons.</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="90%" id="AutoNumber3" bgcolor="#000080">
+    <tbody><tr>
+      <td width="100%"><font color="#FFFFFF" face="Courier New" size="2">struct
+SNeuronLayer</font><p><font face="Courier New" size="2" color="#FFFFFF">{</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //the number of neurons in this 
+layer</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; int
+m_NumNeurons;</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //the layer of neurons</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; vector&lt;SNeuron&gt; m_vecNeurons;</font></p>
+<p>&nbsp;</p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp; SNeuronLayer(int NumNeurons, int
+NumInputsPerNeuron);</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">};</font></p>
+      </td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+<font color="#000000">
+<p class="MsoNormal">&nbsp;</p>
+</font>
+<p class="MsoNormal"><span style="font-family: Arial">As you can see this just 
+groups together a bunch of neurons into a layer. The </span>
+<font face="Courier">CNeuralNet</font><span style="font-family: Arial"> class is 
+much more exciting, so let's move on and take a look at its definition:</span></p>
+<font color="#000000">
+<p class="MsoNormal">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="90%" id="AutoNumber4" bgcolor="#000080">
+    <tbody><tr>
+      <td width="100%"><font size="2" face="Courier New" color="#FFFFFF">class CNeuralNet</font><p>
+      <font face="Courier New" size="2" color="#FFFFFF">{</font></p>
+<font color="#000000">
+<p></p>
+</font>
+<p><font size="2" face="Courier New" color="#FFFFFF">private:</font></p>
+<p><font color="#000000"></font></p><font color="#000000">
+<p></p>
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; int
+m_NumInputs;</font></p>
+<p>&nbsp;</p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp; int
+m_NumOutputs;</font></p>
+<p>&nbsp;</p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp; int
+m_NumHiddenLayers;</font></p>
+<p>&nbsp;</p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp; int
+m_NeuronsPerHiddenLyr;</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //storage for each layer of neurons 
+including the output layer</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; vector&lt;SNeuronLayer&gt; m_vecLayers;</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Courier New" color="#FFFFFF">public:</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp; CNeuralNet();</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //have a guess... ;0)</font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp; void
+CreateNet();</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //gets the weights from the NN</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; vector&lt;double&gt; GetWeights()const;</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //returns the total number of weights in 
+the net</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; int GetNumberOfWeights()const;</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //replaces the weights with new ones</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; void PutWeights(vector&lt;double&gt; 
+&amp;weights);</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //calculates the outputs from a set of 
+inputs</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; vector&lt;double&gt; Update(vector&lt;double&gt; 
+&amp;inputs);</font></p>
+<p>&nbsp;</p>
+<p><font face="Courier New" size="2" color="#FFFFFF">&nbsp; //sigmoid response curve</font></p><font face="Courier New" size="2" color="#FFFFFF">
+</font><font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; inline double Sigmoid(double activation, double response);</font></p>
+<p><font face="Courier New" size="2" color="#FFFFFF">};</font></p>
+      </td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+</font>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family:Arial">Most of this should be self 
+explanatory. The main work is done by the method </span>
+<font face="Courier" color="#FFFFFF">Update</font><span style="font-family:Arial">. Here we pass in our inputs to the neural network as a std::vector 
+of doubles and retrieve the output as another std::vector of doubles. This is 
+really the only method we use after the </span>
+<font face="Courier" color="#FFFFFF">CNeuralNetwork</font><span style="font-family:Arial"> 
+class has been 
+initialized. We can just treat it as a black box, feeding it data and retrieving 
+the output as if by magic. Let's take a closer look at this method:</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse" width="90%" id="AutoNumber5" bgcolor="#000080">
+    <tbody><tr>
+      <td width="100%"><font color="#FFFFFF" size="2" face="Courier New">vector&lt;double&gt; CNeuralNet::Update(vector&lt;double&gt; 
+&amp;inputs)</font><p>
+      <font size="2" face="Courier New" color="#FFFFFF">{</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp; //stores the resultant outputs 
+from each layer</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; vector&lt;double&gt; outputs;</font></p>
+<p>&nbsp;</p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp; int cWeight 
+= 0;</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp; //first check that we have the 
+correct amount of inputs</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; if (inputs.size() 
+!= m_NumInputs)</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp; {</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //just return an 
+empty vector if incorrect.</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp; return outputs;</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp; }</font></p>
+      <font color="#000000">
+<p>&nbsp;</p>
+<p></p>
+      </font>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp; //For each layer....</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp; for (int i=0; i&lt;m_NumHiddenLayers 
++ 1; ++i)</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp; { </font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp; if 
+( i &gt; 0 )</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp; {</font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inputs 
+= outputs;</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp; }</font></p>
+      <font color="#000000">
+<p>&nbsp;</p>
+      </font>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp; outputs.clear();</font></p>
+<p>&nbsp;</p>
+      <font color="#000000">
+<p></p>
+</font><p><font color="#000000"></font><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp; cWeight 
+= 0;</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //for each neuron sum the 
+(inputs * corresponding weights).Throw </font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp; //the total at our 
+sigmoid function to get the output.</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp; for 
+(int j=0; j&lt;m_vecLayers[i].m_NumNeurons; 
+++j)</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp; {</font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double netinput = 0;</font></p>
+<p>&nbsp;</p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int NumInputs = m_vecLayers[i].m_vecNeurons[j].m_NumInputs;</font></p>
+<p>&nbsp;</p>
+      <font color="#000000">
+<p></p>
+</font><p><font color="#000000"></font><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //for 
+each weight</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for 
+(int k=0; k&lt;NumInputs 
+- 1; ++k)</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+//sum the weights x inputs</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+netinput += m_vecLayers[i].m_vecNeurons[j].m_vecWeight[k] 
+* </font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+inputs[cWeight++];</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></p>
+      <font color="#000000">
+<p>&nbsp;</p>
+      </font>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //add in 
+the bias</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; netinput 
++= m_vecLayers[i].m_vecNeurons[j].m_vecWeight[NumInputs-1] 
+* </font></p>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+CParams::dBias;</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //we can store 
+the outputs from each layer as we generate them. </font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //The 
+combined activation is first filtered through the sigmoid </font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+//function</font></p>
+<font color="#000000">
+</font><p><font color="#000000"></font><font color="#FFFFFF" size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; outputs.push_back(Sigmoid(netinput</font><font color="#FFFFFF"><font size="2" face="Courier New">,</font><font face="Courier New">
+</font>
+</font><font color="#FFFFFF" size="2" face="Courier New">CParams::dActivationResponse));</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Courier New" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cWeight 
+= 0;</font></p>
+      <font color="#FFFFFF">
+<p><font size="2" face="Courier New">&nbsp;&nbsp;&nbsp; }</font></p>
+<p><font size="2" face="Courier New">&nbsp; }</font></p>
+      </font>
+<p><font color="#FFFFFF" size="2" face="Courier New">&nbsp; return outputs;</font></p>
+<p><font size="2" face="Courier New" color="#FFFFFF">}</font></p>
+      </td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal"><span style="font-family: Arial">A</span><span style="font-family:Arial">fter 
+this method has checked &nbsp;the validity of the input vector&nbsp;it enters a loop 
+which examines each layer in turn. For each layer, it steps through the neurons 
+in that layer and sums all the inputs multiplied by the corresponding weights. 
+The last weight added in for each neuron is the bias (remember the bias is 
+simply a weight always tied to the value -1.0).&nbsp; This value is then put 
+through the sigmoid function to give that neurons output and then added to a 
+vector which is fed back into the next iteration of the loop and so on until we 
+have our output proper.</span></p>
+<p class="MsoNormal"><span style="font-family:Arial">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-size: 12.0pt; font-family: Arial">The 
+other methods in </span><font face="Courier" color="#FFFFFF"><span style="font-size: 12.0pt; ">
+CNeuralNet</span></font><span style="font-size: 12.0pt; font-family: Arial"> are 
+used mainly by the genetic algorithm class to grab the weights from a network or 
+to replace the weights of a network.&nbsp; </span></p>
+<p class="MsoNormal">&nbsp;</p>
+<hr>
+<p align="center"><b> <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt1.html">1</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt2.html">2</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt3.html">3</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt4.html">4</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt5.html">5</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt7.html">7</a></u>&nbsp; <u>
+<a href="http://www.ai-junkie.com/ann/evolved/nnt8.html">8</a></u>&nbsp; <font face="Arial">
+<a href="http://www.ai-junkie.com/ann/evolved/nnt7.html">Next</a>&nbsp; <a href="http://www.ai-junkie.com/index.html">Home</a></font></b></p>
+
+
+
+</body></html>
