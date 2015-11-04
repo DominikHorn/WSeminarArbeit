@@ -1,0 +1,338 @@
+
+<!-- saved from url=(0043)http://www.ai-junkie.com/ga/intro/gat3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-gb">
+<meta name="Author" content="Mat Buckland">
+<meta name="Keywords" content="artificial intelligence genetic algorithm neural network tutorial introduction ai">
+<meta name="Description" content="genetic algorithm tutorial in plain english">
+
+<title>New Page 1</title>
+<style>
+<!--
+h3
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:Arial}
+-->
+</style>
+<style fprolloverstyle="">A:hover {color: red; font-weight: bold}
+</style>
+<style type="text/css"></style></head>
+
+<body text="#C0C0C0" bgcolor="#000066">
+
+<p align="center"><a href="http://www.ai-junkie.com/">
+<img border="0" src="./Seite3_files/logo.jpg" width="469" height="78"></a></p>
+<hr>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<h3 style="margin: 0"><u><span lang="en-gb"><font size="4" color="#FFFFCC">From 
+Theory to Practice</font></span></u></h3>
+<p style="margin: 0">&nbsp;</p>
+<p style="margin: 0"><font face="Arial">To hammer home the theory you've just 
+learnt let's look at a simple problem:</font></p>
+<p style="margin: 0">&nbsp;</p>
+<p style="margin: 0 15"><font color="#FFFFCC">
+<span lang="EN-GB" style="font-family: Arial; font-style: italic">Given the 
+digits 0 through 9 and the operators +, -, * and /,&nbsp; find a sequence that will 
+represent a given target number. The operators will be applied sequentially from left 
+to right as you read.</span></font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">So, given the target number 23, the 
+sequence 6+5*4/2+1 would be one possible solution.</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">If&nbsp; 75.5 is the chosen number 
+then 5/2+9*7-5 would be a possible solution.</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="en-gb"><font face="Arial">Please make sure you understand the 
+problem before moving on. I know it's a little contrived but I've used it 
+because it's very simple. </font></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<h3 style="margin: 0"><span lang="EN-GB"><font size="3">&nbsp;</font></span></h3>
+<h3 style="margin: 0"><u><span lang="EN-GB"><font color="#FFFFCC" size="4">Stage 
+1: Encoding</font></span></u></h3>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">First we need to encode a possible 
+solution as a string of bits… a chromosome. So how do we do this? Well, first we 
+need to represent all the different characters available to the solution... that 
+is 0 through 9 and +, -, * and /. This will represent a gene. Each chromosome 
+will be made up of several genes.</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family: Arial" lang="en-gb">Four bits are required </span>
+<span lang="EN-GB" style="font-family: Arial">to represent the range of 
+characters used:</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>0</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#00FF00"><b>0000</b></font></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>1</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#00FF00"><b>0001</b></font></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>2</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#00FF00"><b>0010</b></font></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>3</b></font>:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">0011</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>4</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">0100</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>5</b></font>:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">0101</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>6</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">0110</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>7</b></font>:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<b><font color="#00FF00"> 0111</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>8</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">1000</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>9</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">1001</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><b><font color="#FF0000">+</font></b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">1010</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>-</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">1011</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>*</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">1100</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial"><font color="#FF0000"><b>/</b></font>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#00FF00">1101</font></b></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">The above show all the different 
+genes required to encode the problem as described. The possible genes <b>
+<font color="#00FF00">1110</font></b> &amp; <b><font color="#00FF00">1111</font></b> 
+will remain unused and will be ignored by the algorithm if encountered.</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">So now you can see that the 
+solution mentioned above for 23, ' 6+5*4/2+1' would be represented by nine genes 
+like so:</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<font color="#00FF00">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700">0110 1010 0101 
+1100 0100 1101 0010 1010 0001</span></font></p><font color="#00FF00">
+</font><font color="#FFFFCC">
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+</font><font color="#FF0000">
+</font><p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center"><font color="#FF0000">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700">6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1</span></font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">These genes are all strung 
+together to form the chromosome:</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<font color="#00FF00">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700">&nbsp;011010100101110001001101001010100001</span></font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="left">
+<u><span lang="en-gb"><b><font face="Arial" color="#FFFFCC">A Quick Word about 
+Decoding</font></b></span></u></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family: Arial" lang="en-gb">Because</span><span lang="EN-GB" style="font-family: Arial"> the algorithm deals 
+with random arrangements of bits it is often going to come across a string of 
+bits like this:</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<font color="#00FF00">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700">
+0010001010101110101101110010</span></font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family: Arial" lang="en-gb">Decoded, these bits represent:</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<font color="#00FF00">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700">0010 0010 1010 
+1110 1011 0111 0010</span></font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">&nbsp;</p>
+<font color="#FF0000">
+</font><p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center"><font color="#FF0000">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n/a&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+2</span></font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">Which 
+is meaningless in the context of this problem! Therefore, when decoding, the 
+algorithm will just ignore any genes which don’t conform to the expected pattern 
+of: number -&gt; operator -&gt; number -&gt; operator …and so on. With this in mind the 
+above ‘nonsense’ chromosome is read (and tested) as:</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<font color="#FF0000">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700">2&nbsp;&nbsp; +&nbsp;&nbsp; 
+7</span></font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<h3 style="margin: 0"><span lang="EN-GB"><font size="3">&nbsp;</font></span></h3>
+<h3 style="margin: 0"><u><span lang="EN-GB"><font size="4" color="#FFFFCC">Stage 
+2: Deciding on a Fitness Function</font></span></u></h3>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<b><u><span style="text-decoration: none; font-family: Arial" lang="EN-GB">&nbsp;</span></u></b></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">This can be the most difficult 
+part of the algorithm to figure out. It really depends on what problem you are 
+trying to solve but the general idea is to give a higher fitness score the 
+closer a chromosome comes to solving the problem.&nbsp; With regards to the 
+simple project I'm describing here, a fitness score can be assigned that's 
+inversely proportional to the difference between the solution and the value a 
+decoded chromosome represents. </span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">If we assume the target number for 
+the remainder of the tutorial is 42, the chromosome mentioned above</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<font color="#00FF00">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700">
+011010100101110001001101001010100001 </span></font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">has a fitness score of 1/(42-23) 
+or 1/19.</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family: Arial" lang="en-gb">As it stands, if a solution is 
+found, a divide by zero error would occur as the fitness would be</span><span lang="EN-GB" style="font-family: Arial"> 
+1/(42-42). This is not a problem however as we have found what we were 
+looking for... a solution. Therefore a test can be made for this occurrence and 
+the algorithm halted accordingly. </span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<h3 style="margin: 0"><u><span lang="EN-GB"><font color="#FFFFCC" size="4">Stage 
+3: Getting down to business</font></span></u></h3>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<font color="#FFFFCC">
+<span lang="EN-GB" style="font-family: Arial; font-style:italic">First, please read this tutorial 
+again.</span></font></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">If you now&nbsp;feel you understand enough to solve this problem  I would 
+recommend trying to code the genetic algorithm yourself. There is no better way 
+of learning. If, however, you are still confused, I have already prepared some 
+simple code which you can find <a href="http://www.ai-junkie.com/files/Basic_Genetic_Algorithm.zip">here</a>. 
+Please tinker around with the mutation rate, crossover rate, size of chromosome 
+etc to get a feel for how each parameter  effects the algorithm. Hopefully the 
+code should be documented well enough for you to follow what is going on! If not 
+please email me and I’ll try to improve the commenting.</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">Note: The code given will parse a chromosome bit string into the values we have 
+discussed and it will attempt to find a solution which uses <i>all</i> the valid 
+symbols it has found. Therefore if the target is 42, + 6 * 7 / 2 would not give 
+a positive result even though the first four symbols("+ 6 * 7") do give a valid 
+solution. </span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial; font-style: italic">(<font color="#FFFFCC">Delphi</font> code 
+submitted by Asbjørn can be found
+<a target="_self" href="http://www.ai-junkie.com/files/ga_tutorial_delphi.zip">here</a> and 
+<font color="#FFFFCC">Java</font> code submitted by Tim Roberts can be found
+<a href="http://www.ai-junkie.com/files/GA.java">here</a>)</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0"><u><b>
+<span lang="en-gb"><font face="Arial" color="#FFFFCC" size="4">Last Words</font></span></b></u></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span style="font-family: Arial" lang="en-gb">I hope this tutorial has helped 
+you get to grips with the basics of genetic algorithms. Please note that I have 
+only covered the very basics here. If you have found genetic algorithms 
+interesting then there is much more for you to learn. There are different 
+selection techniques to use, different crossover and mutation operators to try 
+and more esoteric stuff like fitness sharing and speciation to fool around with. 
+All or some of these techniques will improve the performance of your genetic 
+algorithms considerably.</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<font color="#FFFFCC"><u><b><font size="4" face="Arial">Stuff to Try</font><span lang="EN-GB" style="font-family: Arial"><font size="4">&nbsp;</font></span></b></u></font></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span style="font-family: Arial" lang="en-gb">If you have succeeded in coding a 
+genetic algorithm to solve the problem given in the tutorial, try having a go at the following more difficult problem:</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0"><span lang="en-gb">
+<font face="Arial">Given an area that has a number of non overlapping disks 
+scattered about its surface as shown in Screenshot 1,</font></span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0" align="center">
+<img border="0" src="./Seite3_files/Screenshot-Tiddlywinks1.jpg" width="399" height="399"></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0" align="center">
+Screenshot 1</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0" align="center">&nbsp;</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span style="font-family: Arial" lang="en-gb">Use a genetic algorithm to find 
+the disk of largest radius which may be placed amongst these disks without 
+overlapping any of them. See Screenshot 2.</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0" align="center">
+<img border="0" src="./Seite3_files/Screenshot-Tiddlywinks2.jpg" width="399" height="399"></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0" align="center">
+<span style="font-family: Times New Roman" lang="en-gb">Screenshot 2</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0"><span lang="en-gb">
+<font face="Arial">As you may have already gathered, I've already written some 
+code that solves this problem so if you get stuck you can find it
+<a href="http://www.ai-junkie.com/files/tiddlywinks.zip">here</a>. (but you will 
+have a go yourself first eh? ;0)). </font></span><font face="Arial">For those of 
+you without compilers, you can get the executable file
+<a href="http://www.ai-junkie.com/files/tiddlywinks_exe.zip">here</a>.</font></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<hr>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<b><font face="Arial" color="#FFFFFF"><a href="http://www.ai-junkie.com/ga/intro/gat1.html">1</a>&nbsp;&nbsp;
+<a href="http://www.ai-junkie.com/ga/intro/gat2.html">2</a>&nbsp;&nbsp; 3&nbsp;&nbsp; <a href="http://www.ai-junkie.com/index.html">Home</a></font></b></p>
+
+
+
+</body></html>

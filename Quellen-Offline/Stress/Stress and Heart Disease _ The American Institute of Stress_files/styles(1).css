@@ -1,0 +1,55 @@
+/*
+* Easy Modal
+* http://wizardinternetsolutions.com/plugins/easy-modal/
+*/
+#eModal-Overlay{background:#000 url(../images/loader.gif) no-repeat scroll center center;height:100%;left:0;position:fixed;top:0;width:100%;z-index:100000}
+#eModal-Container{max-height:90%;max-width:40%;position:absolute;z-index:100001}
+#eModal-Container #eModal-Title{font-size:20px;line-height:20px;margin:0 5px 5px;text-align:center;}
+#eModal-Container #eModal-Content{overflow-x:hidden;overflow-y:auto;text-align: left;}#eModal-Container #eModal-Content a{color: #919B9C;}
+#eModal-Container img{max-height:100%;width:auto}
+#eModal-Close{cursor:pointer;display:block;font-size:20px;font-weight:700;line-height:16px;position:absolute;text-align:center;text-decoration:none;vertical-align:middle}
+#eModal-Buttons{bottom:20px;height:30px;left:-30px;position:absolute;right:-30px}
+#eModal-Previous{background:#fff;height:30px;left:0;position:absolute;width:30px}
+#eModal-Next{background:#fff;height:30px;position:absolute;right:0;width:30px}
+
+
+#eModal-Content p {margin:0;}
+#eModal-Content input {
+    background: none repeat scroll 0 0 #666666;
+    border: 1px solid #16171A;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+#eModal-Content input:hover, #eModal-Content input:focus, #eModal-Content input.focused, #eModal-Content input.actasfocused {
+    border-color: #16171A;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 12px rgba(255, 255, 255, 0.5);
+}
+#eModal-Content label input:focus, #eModal-Content input.focused, #eModal-Content label input.actasfocused {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    outline: medium none;
+}
+/* Contact Form 7 Styles */
+#eModal-Container .wpcf7-form-control-wrap{margin:0 auto;position:relative;width:95%}
+#eModal-Container .wpcf7-form-control-wrap input,#eModal-Container .wpcf7-form-control-wrap textarea{border:none;display:inline;margin:0 auto;padding:2px 0;width:100%}
+#eModal-Container .wpcf7-form-control-wrap textarea{height:175px}
+#eModal-Container .wpcf7-response-output{background:#000;bottom:-65px;color:#fff;left:-1.5%;position:absolute;width:90%}
+#eModal-Container .wpcf7-not-valid-tip{background:#666;border:1px solid red;bottom:-3px;color:#fff;font-size:10pt;left:0;padding:0;position:absolute;top:-3px;width:100%;z-index:100002}
+#eModal-Container .wpcf7-submit{float:right;font-weight:700;margin-top:4px}
+#eModal-Container .wpcf7{margin:0 auto;width:90%}
+
+
+/* IE6 Hack */
+* html #eModal-Overlay { 
+    position: absolute;
+    height: expression(document.body.scrollHeight > 
+            document.body.offsetHeight ? 
+            document.body.scrollHeight : 
+            document.body.offsetHeight   'px');
+}
+
+#eModal-Container .poweredby {
+	margin:5px 20px 0;
+	font-size:.75em;
+	display:block;
+}

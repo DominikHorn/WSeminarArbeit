@@ -1,0 +1,181 @@
+
+<!-- saved from url=(0043)http://www.ai-junkie.com/ga/intro/gat2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-gb">
+<meta name="Author" content="Mat Buckland">
+<meta name="Keywords" content="artificial intelligence genetic algorithm neural network tutorial introduction ai">
+<meta name="Description" content="genetic algorithm tutorial in plain english">
+
+<title>New Page 1</title>
+<style>
+<!--
+h3
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:Arial}
+-->
+</style>
+<style fprolloverstyle="">A:hover {color: red; font-weight: bold}
+</style>
+<style type="text/css"></style></head>
+
+<body text="#C0C0C0" bgcolor="#000066">
+
+<p align="center"><a href="http://www.ai-junkie.com/">
+<img border="0" src="./Seite2_files/logo.jpg" width="469" height="78"></a></p>
+<hr>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial; font-weight: 700; text-decoration:underline">
+<font size="4" color="#FFFFCC">The Genetic Algorithm - a brief overview</font></span></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><font face="Arial">
+Before you can use a genetic algorithm to solve a problem, a way must be found 
+of <i>encoding</i> any potential solution to the problem. This could be as a string of 
+real numbers or, as is more typically the case, a binary bit string. I will 
+refer to this bit string from now on as the chromosome. A typical chromosome may 
+look like this:</font></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="center" style="margin-top: 0; margin-bottom: 0">
+<font face="Arial" size="4" color="#00FF00">
+10010101110101001010011101101110111111101</font></p>
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left" style="margin-top: 0; margin-bottom: 0"><i><font face="Arial">
+(Don't worry if non of this is making sense to you at the moment, it will all 
+start to become clear shortly. For now, just relax and go with the flow.)</font></i></p>
+<p align="left"><font face="Arial">At the beginning of a run of a genetic 
+algorithm a large population of <font color="#FFFFCC"> <i>random</i></font> chromosomes is created. Each one, 
+when decoded will represent a different solution to the problem at hand. Let's 
+say there are <i>N</i> chromosomes in the initial population. Then, the 
+following steps are repeated until a solution is found</font></p>
+<ul>
+  <li>
+  <p align="left" style="line-height: 200%; margin-top: 0; margin-bottom: 0">
+  <span lang="EN-GB" style="font-family: Arial">Test each chromosome to see how 
+  good it is at solving the problem at hand and assign a <i>
+  <a href="http://www.ai-junkie.com/ga/intro/gat2.html#_Stage_2:_Deciding_on_a_Fitness_Func" style="text-decoration: none">
+  <font color="#FFFFCC">f</font></a><a href="http://www.ai-junkie.com/ga/intro/gat2.html#_Stage_2:_Deciding_on_a_Fitness_Func" style="text-decoration: none; text-underline: single"><font color="#FFFFCC">itness 
+  score</font></a></i> accordingly. The fitness score is a measure of how good 
+  that chromosome is at solving the problem to hand.</span></p></li>
+  <li>
+  <p align="left" style="margin-top: 0; margin-bottom: 0; line-height:200%">
+  <span lang="EN-GB" style="font-family: Arial">Select two members from the 
+  current population. The chance of being selected is proportional to the 
+  chromosomes fitness.<a href="http://www.ai-junkie.com/ga/intro/gat2.html#_Tell_me_about_Roulette_Wheel_select" style="text-decoration: none"><b><font color="#C0C0C0">
+  </font></b></a>
+  <a href="http://www.ai-junkie.com/ga/intro/gat2.html#_Tell_me_about_Roulette_Wheel_select" style="text-decoration: none; text-underline: single; font-style:italic">
+  <font color="#FFFFCC">Roulette wheel</font></a> selection is a commonly 
+  used method.</span></p></li>
+  <li>
+  <p align="left" style="line-height: 200%; margin-top: 0; margin-bottom: 0">
+  <span lang="EN-GB" style="font-family: Arial">Dependent on the<b> </b>
+  <a href="http://www.ai-junkie.com/ga/intro/gat2.html#_What's_the_Crossover_Rate?" style="text-decoration: none; font-style: italic">
+  <font color="#FFFFCC">crossover rate</font></a><b> </b>
+  crossover the bits from 
+  each chosen chromosome at a randomly chosen point.</span></p></li>
+  <li>
+  <p align="left" style="line-height: 200%; margin-top: 0; margin-bottom: 0">
+  <span lang="EN-GB" style="font-family: Arial">Step through the chosen 
+  chromosomes bits and flip dependent on the <i>
+  <a href="http://www.ai-junkie.com/ga/intro/gat2.html#_What's_the_Mutation_Rate?" style="text-decoration: none">
+  <font color="#FFFFCC">m</font></a><a href="http://www.ai-junkie.com/ga/intro/gat2.html#_What's_the_Mutation_Rate?" style="text-decoration: none; text-underline: single"><font color="#FFFFCC">utation 
+  rate</font></a></i>.</span></p></li>
+  <li>
+  <p align="left" style="line-height: 200%; margin-top: 0; margin-bottom: 0">
+  <span lang="EN-GB" style="font-family: Arial">Repeat step 2, 3, 4 until a new 
+  population of <i>N </i>members has been created.</span></p></li>
+</ul>
+<h3 style="margin: 0"><u><span lang="EN-GB"><font size="4" color="#FFFFCC">Tell me 
+about Roulette Wheel selection</font></span></u></h3>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0"><font face="Arial">
+<span lang="EN-GB">&nbsp;</span></font></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">This is a way of choosing members 
+from the population of chromosomes in a way that is proportional to their 
+fitness. It does not guarantee that the fittest member goes through to the next 
+generation, merely that it has a very good chance of doing so. It works like this:</span></p>
+<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">Imagine that the population’s 
+total fitness score is represented by a pie chart, or roulette wheel. Now you 
+assign a slice of the wheel to each member of the population. The size of the 
+slice is proportional to that chromosomes fitness score. i.e. the fitter a 
+member is the bigger the slice of pie it gets. Now, to choose a chromosome all 
+you have to do is spin the ball and grab the chromosome at the point it stops.</span></p>
+  <p align="left" style="line-height: 200%; margin-top: 0; margin-bottom: 0">
+  &nbsp;</p><h3 style="margin: 0"><u><span lang="EN-GB"><font size="4" color="#FFFFCC">What's 
+the Crossover Rate?</font></span></u></h3>
+<p style="margin: 0">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">This is simply the chance that two 
+chromosomes will swap their bits. A good value for this is around 0.7.&nbsp; 
+Crossover is performed by selecting a random gene along the length of the 
+chromosomes and swapping all the genes after that point.</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">e.g. Given two chromosomes </span>
+</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<span lang="EN-GB" style="font-family: Arial; font-weight:700">
+<font size="4" color="#00FF00">10001001110010010 </font></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<span lang="EN-GB" style="font-family: Arial; font-weight:700">
+<font size="4" color="#FF0000">01010001001000011</font></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span style="font-family: Arial" lang="en-gb">C</span><span lang="EN-GB" style="font-family: Arial">hoose a random 
+bit along 
+the length, say at position 9, and swap all the bits after that point</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">so the above become:</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<span lang="EN-GB" style="font-family: Arial"><font size="4">
+<font color="#00FF00">100010011</font><font color="#FF0000">01000011</font></font></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">
+<span lang="EN-GB" style="font-family: Arial"><font size="4">
+<font color="#FF0000">010100010</font><font color="#00FF00">10010010</font></font></span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<h3 style="margin: 0"><span lang="EN-GB" style="font-weight: normal">
+<font size="3">&nbsp;</font></span></h3>
+<h3 style="margin: 0"><u><span lang="EN-GB"><font size="4" color="#FFFFCC">What's 
+the Mutation Rate?</font></span></u></h3>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">This is the chance that a bit 
+within a chromosome will be flipped (0 becomes 1, 1 becomes 0). This is usually 
+a very low value for binary encoded genes, say 0.001</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">&nbsp;</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+<span lang="EN-GB" style="font-family: Arial">So whenever chromosomes are chosen 
+from the population the algorithm first checks to see if crossover should be 
+applied and then the algorithm iterates down the length of each chromosome 
+mutating the bits if applicable.</span></p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<hr>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center">&nbsp;</p>
+<p class="MsoNormal" style="text-autospace: none; margin-top: 0; margin-bottom: 0" align="center"><b><font face="Arial" color="#FFFFFF">
+<a href="http://www.ai-junkie.com/ga/intro/gat1.html">1</a>&nbsp;&nbsp; 2&nbsp;&nbsp; <a href="http://www.ai-junkie.com/ga/intro/gat3.html">3</a>&nbsp;&nbsp;
+<a href="http://www.ai-junkie.com/index.html">Home</a></font></b></p>
+
+
+
+</body></html>
